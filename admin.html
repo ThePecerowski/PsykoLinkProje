@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>PsykoLink Yönetim</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="admin/assets/css/terapi-notlari.css">
+</head>
+<body>
+<header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow">
+    <div class="navbar-brand col-md-3 col-lg-2 me-0 px-3 d-flex align-items-center">
+        <i class="fas fa-brain text-white me-2 fa-lg"></i>
+        <span class="brand-text">PsykoLink</span>
+        <small class="ms-2 text-light opacity-75">Admin</small>
+    </div>
+    <div class="navbar-nav flex-row me-auto">
+        <div class="nav-item text-nowrap d-none d-md-block">
+            <span class="px-3 text-white" id="currentDateTime"></span>
+        </div>
+    </div>    <button class="navbar-toggler d-md-none collapsed me-3"type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</header>
+<div class="container-fluid">
+  <div class="row">    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link admin-nav-item active" data-section="haberler" href="#"><i class="fas fa-newspaper me-2"></i>Haberler</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link admin-nav-item" data-section="terapi-notlari" href="#"><i class="fas fa-book-medical me-2"></i>Terapi Notları</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link admin-nav-item" data-section="ayarlar" href="#"><i class="fas fa-cog me-2"></i>Ayarlar</a>
+          </li>
+          <li class="nav-item mt-3">
+            <a href="index.html" class="nav-link"><i class="fas fa-home me-2"></i>Ana Sayfa</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 admin-content">
+      <section id="haberler" class="content-editor active">
+        <div class="admin-card">
+          <h2>Haber Yönetimi</h2>
+          <form id="newsForm" class="mt-3">
+            <div class="mb-3">
+              <label class="form-label" for="newsTitle">Başlık</label>
+              <input type="text" id="newsTitle" name="title" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="newsCategory">Kategori</label>
+              <select id="newsCategory" name="category" class="form-select" required>
+                <option value="">Kategori Seçin</option>
+                <option value="genel">Genel</option>
+                <option value="terapi">Terapi</option>
+                <option value="psikoloji">Psikoloji</option>
+                <option value="egitim">Eğitim</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="newsContent">İçerik</label>
+              <textarea id="newsContent" name="content" class="form-control" rows="5" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Resim URL</label>
+              <input type="text" name="image" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Haberi Kaydet</button>
+          </form>
+          <div class="mt-4">
+            <h3>Mevcut Haberler</h3>
+            <div id="newsList" class="list-group mt-3"></div>
+          </div>
+        </div>
+      </section>
+      <section id="terapi-notlari" class="content-editor">        <div class="admin-card mb-3 d-flex justify-content-between">
+          <h2>Terapi Notları Yönetimi</h2>
+          <div>
+            <button class="btn btn-primary me-2" id="newCategoryBtn"><i class="fas fa-plus"></i> Kategori</button>
+            <button class="btn btn-outline-primary" id="newSubcategoryBtn"><i class="fas fa-layer-group"></i> Alt Kategori</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <div class="admin-card">
+              <h3 class="h5">Kategori Listesi</h3>
+              <div id="categoriesList" class="category-tree mt-3"></div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div id="categoryFormCard" class="admin-card mb-3" style="display: none;">
+              <div class="d-flex justify-content-between mb-3">
+                <h3 class="h5" id="categoryFormTitle">Yeni Kategori</h3>
+                <button type="button" class="btn-close" id="closeCategoryForm"></button>
+              </div>
+              <form id="categoryForm" class="needs-validation" novalidate>
+                <div class="mb-3">
+                  <label class="form-label">Kategori ID</label>
+                  <input type="text" class="form-control" name="categoryId" required pattern="[a-z0-9-]+" placeholder="ornek-kategori">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">İkon</label>
+                  <input type="text" class="form-control" name="icon" required placeholder="fas fa-book">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Başlık</label>
+                  <input type="text" class="form-control" name="title" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Açıklama</label>
+                  <textarea class="form-control" name="description" rows="3" required></textarea>
+                </div>
+                <div class="text-end">
+                  <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+              </form>
+            </div>
+            <div id="subcategoryFormCard" class="admin-card mb-3" style="display: none;">
+              <div class="d-flex justify-content-between mb-3">
+                <h3 class="h5" id="subcategoryFormTitle">Yeni Alt Kategori</h3>
+                <button type="button" class="btn-close" id="closeSubcategoryForm"></button>
+              </div>
+              <form id="subcategoryForm" class="needs-validation" novalidate>
+                <div class="mb-3">
+                  <label class="form-label">Ana Kategori</label>
+                  <select class="form-select" name="parentCategory" required></select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Başlık</label>
+                  <input type="text" class="form-control" name="subcategoryTitle" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Durum</label>
+                  <select class="form-select" name="subcategoryStatus" required>
+                    <option value="Yapım Aşamasında">Yapım Aşamasında</option>
+                    <option value="Hazır">Hazır</option>
+                    <option value="Güncelleniyor">Güncelleniyor</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Açıklama</label>
+                  <textarea class="form-control" name="subcategoryDescription" rows="2" required></textarea>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">İçerik</label>
+                  <textarea class="form-control" name="subcategoryContent" rows="8"></textarea>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <button type="button" class="btn btn-outline-secondary" id="previewSubcategory"><i class="fas fa-eye"></i> Önizle</button>
+                  <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+              </form>
+            </div>
+            <div id="welcomeCard" class="admin-card text-center py-4">
+              <h4>Terapi Notları Yönetimi</h4>
+              <p class="text-muted">Yeni kategori veya alt kategori eklemek için yukarıdaki butonları kullanın.</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="previewModal" tabindex="-1">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">İçerik Önizleme</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <div id="previewContent" class="p-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>      <section id="ayarlar" class="content-editor">
+        <div class="admin-card">
+          <h2>Giriş Bilgileri Yönetimi</h2>
+          <p class="text-muted mb-4">Blog yazarları ve admin için giriş bilgilerini düzenleyin.</p>
+          <form id="adminForm" class="mb-4">
+            <div class="mb-3">
+              <label class="form-label">Admin Kullanıcı Adı</label>
+              <input type="text" name="username" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Admin Şifre</label>
+              <input type="password" name="password" class="form-control" placeholder="Değiştirmek için yeni şifre girin">
+              <small class="text-muted">Boş bırakırsanız mevcut şifre korunacaktır</small>
+            </div>
+            <div class="alert alert-info d-none mb-3">
+              <strong>Mevcut Şifre:</strong> <span id="currentPassword"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Giriş Bilgilerini Güncelle</button>
+          </form>
+          <hr class="my-4">
+          <h4>JSON Veri Düzenleyici</h4>
+          <p class="text-muted">Tüm site verilerini JSON formatında düzenleyin.</p>
+          <textarea id="jsonEditor" class="json-editor"></textarea>
+          <button id="saveJson" class="btn btn-warning mt-3"><i class="fas fa-save"></i> JSON'u Kaydet</button>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+<div class="refresh-overlay" id="refreshOverlay">
+  <div class="spinner"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

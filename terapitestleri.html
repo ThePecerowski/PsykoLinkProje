@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terapi Testleri - PsykoLink</title>
+    <meta name="description" content="Ruh sağlığınızı değerlendirmek için profesyonel terapi testleri. Depresyon, anksiyete, stres seviyesi, bilişsel çarpıtmalar ve daha fazlası.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://psykolink.com/terapitestleri.html">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Terapi Testleri Sayfası için Özel Stiller */
+        .hero-section {
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+            color: white;
+            padding: 5rem 0;
+            margin-top: 76px;
+        }
+        
+        .test-card {
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .test-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .test-card .card-header {
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            color: white;
+            border: none;
+            font-weight: 600;
+            padding: 1rem;
+        }
+        
+        .test-card .card-body {
+            padding: 1.5rem;
+        }
+        
+        .test-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .test-card .btn-primary {
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            border: none;
+            border-radius: 30px;
+            padding: 0.5rem 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .test-card .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .filter-section {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .alert-disclaimer {
+            border-left: 5px solid #17a2b8;
+            background-color: #e8f7fa;
+        }
+        
+        /* Modal Styles */
+        .test-modal .modal-header {
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            color: white;
+            border: none;
+        }
+        
+        .test-modal .modal-body {
+            padding: 2rem;
+        }
+        
+        .test-disclaimer {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        /* Test-Taking Styles */
+        .question-container {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+        
+        .question-container:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .question-options {
+            padding-left: 1rem;
+        }
+        
+        .option-container {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: all 0.2s ease;
+        }
+        
+        .option-container:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .option-container input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+        
+        .test-progress .progress {
+            height: 10px;
+            border-radius: 5px;
+            background-color: #e9ecef;
+        }
+        
+        .test-progress .progress-bar {
+            background: linear-gradient(to right, #3498db, #2ecc71);
+        }
+        
+        #testResultInterpretation {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background-color: #f8f9fa;
+        }
+        
+        #testScoreBar {
+            height: 20px;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+        }
+        
+        /* Result level indicators */
+        .result-level {
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .result-level-low {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .result-level-medium {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .result-level-high {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .result-recommendations {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #e8f7fa;
+            border-radius: 0.5rem;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 3rem 0;
+                margin-top: 60px;
+            }
+            
+            .test-card {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-to-content">İçeriğe atla</a>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-brain"></i> PsykoLink</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#services">Hizmetlerimiz</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">İletişim</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero-section" id="main-content">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-4" data-aos="fade-up">Kendinizi Tanıyın: Terapi Testleriyle İlk Adımı Atın</h1>
+            <p class="lead mb-5" data-aos="fade-up" data-aos-delay="100">Psikolojik farkındalığınızı artırmak ve ruh sağlığınızı değerlendirmek için bilimsel olarak hazırlanmış testlerimizi keşfedin.</p>
+            <a href="#tests" class="btn btn-light btn-lg" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-chevron-down me-2"></i> Testlere Göz At
+            </a>
+        </div>
+    </section>
+    
+    <!-- Filter Section -->
+    <section class="container mt-5">
+        <div class="filter-section" data-aos="fade-up">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <label for="categoryFilter" class="form-label">Kategori</label>
+                    <select class="form-select" id="categoryFilter">
+                        <option value="all">Tüm Kategoriler</option>
+                        <option value="Duygusal">Duygusal</option>
+                        <option value="Bilişsel">Bilişsel</option>
+                        <option value="Davranışsal">Davranışsal</option>
+                        <option value="İlişkisel">İlişkisel</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <label for="sortFilter" class="form-label">Sırala</label>
+                    <select class="form-select" id="sortFilter">
+                        <option value="default">Varsayılan</option>
+                        <option value="difficulty">Zorluğa Göre</option>
+                        <option value="duration">Süreye Göre</option>
+                    </select>
+                </div>
+                <div class="col-md-4">                    <label for="searchInput" class="form-label">Ara</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="searchInput" placeholder="Test ara...">
+                        <button class="btn btn-primary" type="button" id="searchButton">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Alert Message -->
+    <div class="container mt-4">
+        <div class="alert alert-info alert-dismissible fade show alert-disclaimer" role="alert" data-aos="fade-up">
+            <h5><i class="fas fa-info-circle me-2"></i> Önemli Bilgilendirme</h5>
+            <p class="mb-0">Bu testler, profesyonel bir klinik değerlendirme veya tanı yerine geçmez. Sonuçlar %100 doğruluk göstermeyebilir ve sadece bilgilendirme amaçlıdır. Ruh sağlığınızla ilgili endişeleriniz varsa, lütfen bir ruh sağlığı uzmanına danışınız.</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+    
+    <!-- Tests Section -->
+    <section class="container my-5" id="tests">
+        <h2 class="text-center mb-5" data-aos="fade-up">Terapi Testleri</h2>
+        <div class="row" id="testCards">
+            <!-- Test cards will be populated by JavaScript -->
+        </div>
+    </section>
+    
+    <!-- Test Info Modal -->
+    <div class="modal fade test-modal" id="testInfoModal" tabindex="-1" aria-labelledby="testInfoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="testInfoModalLabel">Test Bilgisi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="testModalContent">
+                        <!-- Modal content will be populated by JavaScript -->
+                    </div>
+                    <div class="test-disclaimer">
+                        <p class="mb-0"><i class="fas fa-exclamation-triangle me-2"></i> <strong>Uyarı:</strong> Bu test, klinik bir tanı aracı değildir. Sonuçlar sadece bilgilendirme amaçlıdır ve bir ruh sağlığı uzmanının değerlendirmesinin yerini tutmaz.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-primary" id="startTestButton">Teste Başla</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Test Taking Modal -->
+    <div class="modal fade test-modal" id="testTakingModal" tabindex="-1" aria-labelledby="testTakingModalLabel" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="testTakingModalLabel">Test Soruları</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="test-progress mb-4">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" id="testProgressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                        </div>
+                        <p class="text-center mt-2 small" id="testProgressText">Soru 0/0</p>
+                    </div>
+                    
+                    <form id="testQuestionsForm">
+                        <!-- Test questions will be populated by JavaScript -->
+                    </form>
+                    
+                    <div id="testResultsContainer" class="d-none">
+                        <h4 class="mb-4 text-center">Test Sonuçları</h4>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title" id="testResultTitle">Sonuç</h5>
+                                <div class="my-4">
+                                    <div class="progress">
+                                        <div class="progress-bar" id="testScoreBar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <p class="text-center mt-2" id="testScoreText">0/0 Puan</p>
+                                </div>
+                                <div id="testResultInterpretation">
+                                    <!-- Result interpretation will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-info">
+                            <p class="mb-0"><i class="fas fa-info-circle me-2"></i> <strong>Bilgi:</strong> Bu sonuçlar yalnızca bilgilendirme amaçlıdır ve klinik bir teşhis yerine geçmez. Sonuçlarınızla ilgili endişeleriniz varsa, lütfen bir ruh sağlığı uzmanına danışın.</p>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="button" class="btn btn-primary" id="downloadResultsBtn">
+                                <i class="fas fa-download me-2"></i> Sonuçları İndir
+                            </button>
+                            <div>
+                                <button type="button" class="btn btn-outline-secondary me-2" data-bs-dismiss="modal">Kapat</button>
+                                <button type="button" class="btn btn-success" id="shareResultsBtn">
+                                    <i class="fas fa-share-alt me-2"></i> Sonuçları Paylaş
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" id="testTakingFooter">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="button" class="btn btn-primary" id="nextQuestionBtn">Sonraki Soru</button>
+                    <button type="button" class="btn btn-success d-none" id="submitTestBtn">Testi Tamamla</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer py-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <a href="index.html"><h3><i class="fas fa-brain"></i> PsykoLink</h3></a>
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 PsykoLink. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-muted me-3">Gizlilik Politikası</a>
+                    <a href="#" class="text-muted">Kullanım Şartları</a>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <p class="text-muted small">Burada bulunan testler yalnızca bilgilendirme amaçlıdır ve profesyonel bir psikolojik değerlendirme yerine geçmez. Sonuçları bir sağlık uzmanıyla değerlendirmeniz önerilir.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="btn btn-primary back-to-top" aria-label="Yukarı Çık">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+      <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="assets/js/exercises-tracker.js"></script>
+    
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        
+        // Global variables
+        let allTests = [];
+        let currentTestId = null;
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let totalQuestions = 0;
+        
+        // DOM Elements
+        const testCardsContainer = document.getElementById('testCards');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const sortFilter = document.getElementById('sortFilter');
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        const testModalContent = document.getElementById('testModalContent');
+        const startTestButton = document.getElementById('startTestButton');
+        const testTakingModal = document.getElementById('testTakingModal');
+        const testQuestionsForm = document.getElementById('testQuestionsForm');
+        const testProgressBar = document.getElementById('testProgressBar');
+        const testProgressText = document.getElementById('testProgressText');
+        const nextQuestionBtn = document.getElementById('nextQuestionBtn');
+        const submitTestBtn = document.getElementById('submitTestBtn');
+        const testResultsContainer = document.getElementById('testResultsContainer');
+        const testTakingFooter = document.getElementById('testTakingFooter');
+        const testScoreBar = document.getElementById('testScoreBar');
+        const testScoreText = document.getElementById('testScoreText');
+        const testResultTitle = document.getElementById('testResultTitle');
+        const testResultInterpretation = document.getElementById('testResultInterpretation');
+        const downloadResultsBtn = document.getElementById('downloadResultsBtn');
+        const shareResultsBtn = document.getElementById('shareResultsBtn');
+        
+        // Fetch tests data from JSON file
+        async function fetchTests() {
+            try {
+                const response = await fetch('tests.json');
+                if (!response.ok) {
+                    throw new Error('Tests data could not be loaded');
+                }
+                const data = await response.json();
+                allTests = data.tests;
+                displayTests(allTests);
+            } catch (error) {
+                console.error('Error loading tests:', error);
+                testCardsContainer.innerHTML = `
+                    <div class="col-12">
+                        <div class="alert alert-danger">
+                            <p>Testler yüklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        
+        // Display tests as cards
+        function displayTests(tests) {
+            if (tests.length === 0) {
+                testCardsContainer.innerHTML = `
+                    <div class="col-12">
+                        <div class="alert alert-info">
+                            <p>Arama kriterlerinize uygun test bulunamadı.</p>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+            
+            testCardsContainer.innerHTML = '';
+            tests.forEach(test => {
+                const testCard = document.createElement('div');
+                testCard.className = 'col-lg-4 col-md-6 mb-4';
+                testCard.dataset.category = test.category;
+                testCard.dataset.aos = 'fade-up';
+                testCard.innerHTML = `
+                    <div class="card test-card">
+                        <div class="card-header">
+                            <h5 class="mb-0">${test.name}</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">${test.shortDescription}</p>
+                            <div class="test-info">
+                                <span><i class="fas fa-chart-bar me-1"></i> ${test.difficulty}</span>
+                                <span><i class="far fa-clock me-1"></i> ${test.duration}</span>
+                                <span><i class="fas fa-tag me-1"></i> ${test.category}</span>
+                            </div>
+                            <button class="btn btn-primary w-100 mt-3 view-test-info" data-test-id="${test.id}">
+                                Teste Başla
+                            </button>
+                        </div>
+                    </div>
+                `;
+                testCardsContainer.appendChild(testCard);
+            });
+            
+            // Add event listeners to test info buttons
+            document.querySelectorAll('.view-test-info').forEach(button => {
+                button.addEventListener('click', () => openTestInfo(button.dataset.testId));
+            });
+        }
+        
+        // Open test info modal
+        function openTestInfo(testId) {
+            const test = allTests.find(t => t.id === testId);
+            if (!test) return;
+            
+            currentTestId = testId;
+            
+            testModalContent.innerHTML = `
+                <h4>${test.name}</h4>
+                <p>${test.description}</p>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Test Hakkında</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p><strong>Zorluk:</strong> ${test.difficulty}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Süre:</strong> ${test.duration}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Kategori:</strong> ${test.category}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h5>Yönerge</h5>
+                <p>${test.instructions}</p>
+            `;
+            
+            const modal = new bootstrap.Modal(testInfoModal);
+            modal.show();
+        }
+        
+        // Apply filters to tests
+        function applyFilters() {
+            const category = categoryFilter.value;
+            const sortBy = sortFilter.value;
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            
+            let filteredTests = [...allTests];
+            
+            // Apply category filter
+            if (category !== 'all') {
+                filteredTests = filteredTests.filter(test => test.category === category);
+            }
+            
+            // Apply search filter
+            if (searchTerm) {
+                filteredTests = filteredTests.filter(test => 
+                    test.name.toLowerCase().includes(searchTerm) || 
+                    test.shortDescription.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            // Apply sorting
+            if (sortBy === 'difficulty') {
+                const difficultyOrder = {'Kolay': 1, 'Orta': 2, 'Zor': 3};
+                filteredTests.sort((a, b) => difficultyOrder[a.difficulty] - difficultyOrder[b.difficulty]);
+            } else if (sortBy === 'duration') {
+                filteredTests.sort((a, b) => {
+                    // Extract the number from the duration string (e.g., "5-10 dk" → 5)
+                    const aDuration = parseInt(a.duration);
+                    const bDuration = parseInt(b.duration);
+                    return aDuration - bDuration;
+                });
+            }
+            
+            displayTests(filteredTests);
+        }
+          // Start test
+        function startTest(testId) {
+            const test = allTests.find(t => t.id === testId);
+            if (!test) return;
+            
+            // Show disclaimer alert
+            alert("Bu test, profesyonel bir klinik değerlendirme veya tanı yerine geçmez. Sonuçlar %100 doğruluk göstermeyebilir ve sadece bilgilendirme amaçlıdır.");
+            
+            // Reset test state
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            totalQuestions = test.questions.length;
+            
+            // Close info modal
+            const infoModal = bootstrap.Modal.getInstance(testInfoModal);
+            infoModal.hide();
+            
+            // Update test taking modal title
+            document.getElementById('testTakingModalLabel').textContent = test.name;
+            
+            // Reset the test form and show the first question
+            showQuestion(test, currentQuestionIndex);
+            
+            // Show test taking modal
+            const takingModal = new bootstrap.Modal(testTakingModal);
+            takingModal.show();
+        }
+        
+        // Show a specific question
+        function showQuestion(test, questionIndex) {
+            const question = test.questions[questionIndex];
+            
+            // Update progress
+            const progress = ((questionIndex + 1) / totalQuestions) * 100;
+            testProgressBar.style.width = `${progress}%`;
+            testProgressBar.setAttribute('aria-valuenow', progress);
+            testProgressText.textContent = `Soru ${questionIndex + 1}/${totalQuestions}`;
+            
+            // Create the question HTML
+            testQuestionsForm.innerHTML = `
+                <div class="question-container" data-question-id="${question.id}">
+                    <div class="question-text">
+                        <h5>${questionIndex + 1}. ${question.text}</h5>
+                        <p class="text-muted small">${question.measures}</p>
+                    </div>
+                    <div class="question-options">
+                        ${question.options.map((option, index) => `
+                            <div class="option-container">
+                                <input type="radio" 
+                                       name="question${question.id}" 
+                                       id="option${question.id}_${index}" 
+                                       value="${option.value}" 
+                                       class="form-check-input"
+                                       ${userAnswers[questionIndex] === option.value ? 'checked' : ''}>
+                                <label for="option${question.id}_${index}" class="form-check-label">
+                                    ${option.text}
+                                </label>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            // Show next/submit buttons
+            if (questionIndex === totalQuestions - 1) {
+                nextQuestionBtn.classList.add('d-none');
+                submitTestBtn.classList.remove('d-none');
+            } else {
+                nextQuestionBtn.classList.remove('d-none');
+                submitTestBtn.classList.add('d-none');
+            }
+            
+            // Reset results container
+            testResultsContainer.classList.add('d-none');
+            testTakingFooter.classList.remove('d-none');
+        }
+        
+        // Handle moving to the next question
+        function handleNextQuestion() {
+            // Save current answer
+            const questionId = testQuestionsForm.querySelector('.question-container').dataset.questionId;
+            const selectedOption = document.querySelector(`input[name="question${questionId}"]:checked`);
+            
+            if (!selectedOption) {
+                alert('Lütfen bir cevap seçin.');
+                return;
+            }
+            
+            // Save answer
+            userAnswers[currentQuestionIndex] = parseInt(selectedOption.value);
+            
+            // Move to next question
+            currentQuestionIndex++;
+            const test = allTests.find(t => t.id === currentTestId);
+            showQuestion(test, currentQuestionIndex);
+        }
+        
+        // Handle test submission
+        function handleTestSubmission() {
+            // Save last answer
+            const questionId = testQuestionsForm.querySelector('.question-container').dataset.questionId;
+            const selectedOption = document.querySelector(`input[name="question${questionId}"]:checked`);
+            
+            if (!selectedOption) {
+                alert('Lütfen bir cevap seçin.');
+                return;
+            }
+            
+            // Save answer
+            userAnswers[currentQuestionIndex] = parseInt(selectedOption.value);
+            
+            // Calculate score
+            const test = allTests.find(t => t.id === currentTestId);
+            const totalScore = userAnswers.reduce((sum, value) => sum + value, 0);
+            const maxPossibleScore = test.questions.reduce((sum, q) => {
+                const maxOptionValue = Math.max(...q.options.map(opt => opt.value));
+                return sum + maxOptionValue;
+            }, 0);
+            
+            const scorePercentage = (totalScore / maxPossibleScore) * 100;
+            
+            // Display results
+            testQuestionsForm.classList.add('d-none');
+            testResultsContainer.classList.remove('d-none');
+            testTakingFooter.classList.add('d-none');
+            
+            // Update score display
+            testScoreBar.style.width = `${scorePercentage}%`;
+            testScoreBar.setAttribute('aria-valuenow', scorePercentage);
+            testScoreText.textContent = `${totalScore}/${maxPossibleScore} Puan`;
+            testResultTitle.textContent = `${test.name} Sonucu`;
+            
+            // Interpret result
+            let resultLevel, resultText, recommendations;
+            
+            if (scorePercentage < 30) {
+                resultLevel = 'low';
+                resultText = 'Düşük Seviye';
+            } else if (scorePercentage < 70) {
+                resultLevel = 'medium';
+                resultText = 'Orta Seviye';
+            } else {
+                resultLevel = 'high';
+                resultText = 'Yüksek Seviye';
+            }
+            
+            // Create result interpretation based on test type
+            let interpretationHtml = `
+                <div class="text-center">
+                    <span class="result-level result-level-${resultLevel}">${resultText}</span>
+                </div>
+            `;
+            
+            // Add specific interpretations based on test type
+            switch(test.id) {
+                case 'beck-depression':
+                    if (scorePercentage < 30) {
+                        interpretationHtml += `
+                            <p>Depresyon belirtileri minimal düzeyde görünmektedir. Şu anda ciddi bir depresif durum yaşamıyor olabilirsiniz.</p>
+                            <div class="result-recommendations">
+                                <h6><i class="fas fa-lightbulb me-2"></i> Öneriler</h6>
+                                <ul>
+                                    <li>Düzenli fiziksel aktivite yaparak ruh halinizi koruyun</li>
+                                    <li>Stres yönetimi teknikleri uygulayarak olumlu ruh halinizi sürdürün</li>
+                                    <li>Sosyal bağlarınızı güçlendirin</li>
+                                </ul>
+                            </div>
+                        `;
+                    } else if (scorePercentage < 70) {
+                        interpretationHtml += `
+                            <p>Hafif ila orta düzeyde depresyon belirtileri gösteriyor olabilirsiniz. Bu sonuçlar, bazı depresif belirtilerin varlığına işaret ediyor.</p>
+                            <div class="result-recommendations">
+                                <h6><i class="fas fa-lightbulb me-2"></i> Öneriler</h6>
+                                <ul>
+                                    <li>Bir ruh sağlığı uzmanıyla görüşmeyi düşünün</li>
+                                    <li>Günlük yaşamda kendinize zaman ayırın ve keyif aldığınız aktivitelere katılın</li>
+                                    <li>Düzenli egzersiz ve dengeli beslenmeye özen gösterin</li>
+                                    <li>Destekleyici ilişkileri sürdürün ve duygularınızı paylaşın</li>
+                                </ul>
+                            </div>
+                        `;
+                    } else {
+                        interpretationHtml += `
+                            <p>Orta ila şiddetli düzeyde depresyon belirtileri gösteriyor olabilirsiniz. Bu sonuç, klinik depresyonun mümkün olduğunu gösteriyor.</p>
+                            <div class="result-recommendations">
+                                <h6><i class="fas fa-lightbulb me-2"></i> Öneriler</h6>
+                                <ul>
+                                    <li>En kısa sürede bir psikiyatrist veya klinik psikologla görüşün</li>
+                                    <li>Kendinize zarar verme düşünceleriniz varsa, hemen yardım alın</li>
+                                    <li>Sevdiklerinize nasıl hissettiğinizi anlatın ve destek isteyin</li>
+                                    <li>Tedavi seçenekleri hakkında bir uzmana danışın</li>
+                                </ul>
+                            </div>
+                        `;
+                    }
+                    break;
+                    
+                case 'anxiety-test':
+                    if (scorePercentage < 30) {
+                        interpretationHtml += `
+                            <p>Anksiyete belirtileri minimal düzeyde görünmektedir. Şu anda ciddi bir kaygı bozukluğu yaşamıyor olabilirsiniz.</p>
+                            <div class="result-recommendations">
+                                <h6><i class="fas fa-lightbulb me-2"></i> Öneriler</h6>
+                                <ul>
+                                    <li>Günlük mindfulness pratikleri yaparak farkındalığınızı koruyun</li>
+                                    <li>Düzenli nefes egzersizleri uygulayın</li>
+                                    <li>Stresi azaltacak hobiler edinin</li>
+                                </ul>
+                            </div>
+                        `;
+                    } else if (scorePercentage < 70) {
+                        interpretationHtml += `
+                            <p>Hafif ila orta düzeyde anksiyete belirtileri gösteriyor olabilirsiniz. Bu sonuçlar, bazı kaygı belirtilerinin varlığına işaret ediyor.</p>
+                            <div class="result-recommendations">
+                                <h6><i class="fas fa-lightbulb me-2"></i> Öneriler</h6>
+                                <ul>
+                                    <li>Düzenli nefes ve gevşeme egzersizleri yapın</li>
+                                    <li>Endişelerinizi tanımlamak için düşünce günlüğü tutun</li>
+                                    <li>Kafein ve alkol tüketimini azaltın</li>
+                                    <li>Gerekirse bir uzmana danışın</li>
+                                </ul>
+                            </div>
+                        `;
+                    } else {
+                        interpretationHtml += `
+                            <p>Orta ila şiddetli düzeyde anksiyete belirtileri gösteriyor olabilirsiniz. Bu sonuç, bir anksiyete bozukluğunun mümkün olduğunu gösteriyor.</p>
+                            <div class="result-recommendations">
+                                <h6><i class="fas fa-lightbulb me-2"></i> Öneriler</h6>
+                                <ul>
+                                    <li>Bir ruh sağlığı uzmanıyla değerlendirme randevusu alın</li>
+                                    <li>Düzenli nefes egzersizleri yapın</li>
+                                    <li>Tetikleyicileri tanımlayın ve yönetmeyi öğrenin</li>
+                                    <li>Tedavi seçenekleri hakkında bilgi alın</li>
+                                </ul>
+                            </div>
+                        `;
+                    }
+                    break;
+                    
+                default:
+                    // Generic interpretation for other tests
+                    if (scorePercentage < 30) {
+                        interpretationHtml += `
+                            <p>Belirtiler minimal düzeyde görünmektedir. Şu anda bu alanda ciddi bir sorun yaşamıyor olabilirsiniz.</p>
+                            <div class="result-recommendations">
+                                <h6><i class="fas fa-lightbulb me-2"></i> Öneriler</h6>
+                                <ul>
+                                    <li>Koruyucu ruh sağlığı alışkanlıklarını sürdürün</li>
+                                    <li>Düzenli fiziksel aktivite yapın</li>
+                                    <li>Sosyal bağlarınızı güçlü tutun</li>
+                                </ul>
+                            </div>
+                        `;
+                    } else if (scorePercentage < 70) {
+                        interpretationHtml += `
+                            <p>Hafif ila orta düzeyde belirtiler gösteriyor olabilirsiniz. Bu sonuçlar, bazı belirtilerin varlığına işaret ediyor.</p>
+                            <div class="result-recommendations">
+                                <h6><i class="fas fa-lightbulb me-2"></i> Öneriler</h6>
+                                <ul>
+                                    <li>Öz-bakım aktivitelerine daha fazla zaman ayırın</li>
+                                    <li>Stres yönetimi tekniklerini öğrenin ve uygulayın</li>
+                                    <li>Gerekirse bir uzmana danışın</li>
+                                </ul>
+                            </div>
+                        `;
+                    } else {
+                        interpretationHtml += `
+                            <p>Orta ila şiddetli düzeyde belirtiler gösteriyor olabilirsiniz. Bu sonuç, bu alanda zorlanmalar yaşayabileceğinizi gösteriyor.</p>
+                            <div class="result-recommendations">
+                                <h6><i class="fas fa-lightbulb me-2"></i> Öneriler</h6>
+                                <ul>
+                                    <li>Bir ruh sağlığı uzmanıyla değerlendirme randevusu alın</li>
+                                    <li>Destekleyici bir çevre oluşturun</li>
+                                    <li>Öz-bakım rutinlerinizi iyileştirin</li>
+                                    <li>Tedavi seçenekleri hakkında bilgi alın</li>
+                                </ul>
+                            </div>
+                        `;
+                    }
+            }
+            
+            testResultInterpretation.innerHTML = interpretationHtml;
+            
+            // Save results to localStorage
+            const testResult = {
+                testId: test.id,
+                testName: test.name,
+                date: new Date().toLocaleString(),
+                totalScore,
+                maxPossibleScore,
+                scorePercentage,
+                resultLevel,
+                answers: userAnswers
+            };
+            
+            const savedResults = JSON.parse(localStorage.getItem('testResults') || '{}');
+            savedResults[test.id] = testResult;
+            localStorage.setItem('testResults', JSON.stringify(savedResults));
+        }
+        
+        // Generate and download PDF of results
+        function downloadResults() {
+            const test = allTests.find(t => t.id === currentTestId);
+            if (!test) return;
+            
+            // Create a text version of the results
+            const totalScore = userAnswers.reduce((sum, value) => sum + value, 0);
+            const maxPossibleScore = test.questions.reduce((sum, q) => {
+                const maxOptionValue = Math.max(...q.options.map(opt => opt.value));
+                return sum + maxOptionValue;
+            }, 0);
+            
+            const resultsText = `
+PsykoLink - Test Sonuçları
+--------------------------
+
+Test: ${test.name}
+Tarih: ${new Date().toLocaleString()}
+
+Puan: ${totalScore}/${maxPossibleScore}
+
+Uyarı: Bu test sonuçları yalnızca bilgilendirme amaçlıdır ve klinik bir teşhis yerine geçmez.
+Sonuçlarınızla ilgili endişeleriniz varsa, lütfen bir ruh sağlığı uzmanına danışın.
+            `;
+            
+            // Create a blob and download
+            const blob = new Blob([resultsText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${test.id}-sonuc.txt`;
+            a.click();
+            
+            // Clean up
+            URL.revokeObjectURL(url);
+        }
+        
+        // Share results (simple implementation)
+        function shareResults() {
+            alert('Bu özellik şu anda yapım aşamasındadır. Sonuçlarınızı metin olarak indirip manuel olarak paylaşabilirsiniz.');
+        }        // Event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            // DOM Elements
+            const testCardsContainer = document.getElementById('testCards');
+            const categoryFilter = document.getElementById('categoryFilter');
+            const sortFilter = document.getElementById('sortFilter');
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+            const testModalContent = document.getElementById('testModalContent');
+            const startTestButton = document.getElementById('startTestButton');
+            const testTakingModal = document.getElementById('testTakingModal');
+            const testQuestionsForm = document.getElementById('testQuestionsForm');
+            const testProgressBar = document.getElementById('testProgressBar');
+            const testProgressText = document.getElementById('testProgressText');
+            const nextQuestionBtn = document.getElementById('nextQuestionBtn');
+            const submitTestBtn = document.getElementById('submitTestBtn');
+            const testResultsContainer = document.getElementById('testResultsContainer');
+            const testTakingFooter = document.getElementById('testTakingFooter');
+            const testScoreBar = document.getElementById('testScoreBar');
+            const testScoreText = document.getElementById('testScoreText');
+            const testResultTitle = document.getElementById('testResultTitle');
+            const testResultInterpretation = document.getElementById('testResultInterpretation');
+            const downloadResultsBtn = document.getElementById('downloadResultsBtn');
+            const shareResultsBtn = document.getElementById('shareResultsBtn');
+            
+            fetchTests();
+            
+            // Filter change events
+            categoryFilter.addEventListener('change', applyFilters);
+            sortFilter.addEventListener('change', applyFilters);
+            
+            // Search events
+            searchButton.addEventListener('click', applyFilters);
+            searchInput.addEventListener('keyup', event => {
+                if (event.key === 'Enter') {
+                    applyFilters();
+                }
+            });
+            
+            // Start test button in info modal
+            startTestButton.addEventListener('click', () => startTest(currentTestId));
+            
+            // Test taking navigation buttons
+            nextQuestionBtn.addEventListener('click', handleNextQuestion);
+            submitTestBtn.addEventListener('click', handleTestSubmission);
+            
+            // Results actions
+            downloadResultsBtn.addEventListener('click', downloadResults);
+            shareResultsBtn.addEventListener('click', shareResults);
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('backToTop');
+            if (backToTopButton) {
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.classList.add('show');
+                    } else {
+                        backToTopButton.classList.remove('show');
+                    }
+                });
+                
+                backToTopButton.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            
+            // Show disclaimer alert on page load
+            setTimeout(() => {
+                const alertMessage = "Bu testler, profesyonel bir klinik değerlendirme veya tanı yerine geçmez. Sonuçlar %100 doğruluk göstermeyebilir ve sadece bilgilendirme amaçlıdır.";
+                alert(alertMessage);
+            }, 1000);            
+            // Event delegation for test questions form
+            testQuestionsForm.addEventListener('click', function(event) {
+                if (event.target.matches('.form-check-input')) {
+                    const questionIndex = Array.from(testQuestionsForm.querySelectorAll('div.mb-4')).findIndex(div => div.contains(event.target));
+                    if (questionIndex >= 0) {
+                        // Next question button logic
+                        const totalQuestions = testQuestionsForm.querySelectorAll('div.mb-4').length;
+                        const currentQuestion = questionIndex + 1;
+                        
+                        if (currentQuestion < totalQuestions) {
+                            // Load next question
+                            updateTestProgress(currentQuestion, totalQuestions);
+                        } else {
+                            // Calculate and show results
+                            calculateTestResults(allTests.find(t => t.id === currentTestId));
+                            testResultsContainer.classList.remove('d-none');
+                            testTakingFooter.querySelector('#nextQuestionBtn').classList.add('d-none');
+                            testTakingFooter.querySelector('#submitTestBtn').classList.remove('d-none');
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

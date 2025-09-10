@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditasyonlar | PsykoLink</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <!-- Bootstrap and FontAwesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/meditasyonlar.css">
+    <link rel="stylesheet" href="assets/css/disclaimer.css">
+    <link rel="stylesheet" href="assets/css/modal-fix.css">
+    
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Style for navbar and footer -->
+    <style>
+        .disclaimer-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        /* Admin Modal Backdrop Fix */
+        .modal-backdrop {
+            display: none !important;
+        }
+        
+        body.modal-open {
+            overflow: auto !important;
+            padding-right: 0 !important;
+        }
+        
+        /* Custom modal styling */
+        .custom-modal {
+            background-color: rgba(0, 0, 0, 0.3);
+            pointer-events: auto;
+        }
+        
+        .custom-modal .modal-dialog {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Sticky Footer Styles */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .content-wrapper {
+            flex: 1 0 auto;
+        }
+        
+        .footer {
+            flex-shrink: 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .disclaimer-content {
+            position: relative;
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-50px);
+            animation: slideIn 0.3s ease-out forwards;
+        }
+
+        .disclaimer-title {
+            color: #e74c3c;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .disclaimer-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .disclaimer-checkbox-container {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            padding: 15px;
+        }
+
+        /* Additional styles for meditasyonlar.html with navbar */
+        .meditasyon-header {
+            padding-top: 100px; /* Add padding to account for fixed navbar */
+        }
+        
+        /* Additional responsive adjustments */
+        @media (max-width: 768px) {
+            .meditasyon-header {
+                padding-top: 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content-wrapper">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-brain"></i> PsykoLink</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#services">Hizmetlerimiz</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">İletişim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="BilisselTerapi.html">Bilişsel Terapi</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Bölümü -->
+    <div class="meditasyon-header" id="meditasyon-header">
+        <h1 id="meditasyon-title">Meditasyon</h1>
+        <p id="meditasyon-description">Meditasyon açıklaması yükleniyor...</p>
+        <div class="meditasyon-meta">
+            <span id="meditasyon-difficulty" class="badge">Zorluk</span>
+            <span id="meditasyon-duration" class="badge">Süre</span>
+        </div>
+    </div>
+
+    <!-- Ana içerik -->
+    <div class="meditasyon-container">
+
+        <!-- Meditasyon Bilgileri -->
+        <div class="meditasyon-info">
+            <div class="info-section">
+                <h3>Bu Meditasyon Hakkında</h3>
+                <p id="meditasyon-about">Yükleniyor...</p>
+            </div>
+
+            <div class="info-section">
+                <h3>Faydaları</h3>
+                <ul id="meditasyon-benefits" class="benefits-list">
+                    <!-- Faydalar buraya eklenecek -->
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <h3>Nasıl Uygulanır?</h3>
+                <div id="meditasyon-practice-guide">
+                    <!-- Uygulama adımları buraya eklenecek -->
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>Bilimsel Araştırmalar</h3>
+                <p id="meditasyon-science">Yükleniyor...</p>
+                <div class="references" id="meditasyon-references">
+                    <!-- Referanslar buraya eklenecek -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Meditasyon Uygulama Bölümü -->
+        <div class="meditasyon-practice">
+            <div class="practice-card">
+                <h2>Meditasyon Uygulaması</h2>
+
+                <div class="alert alert-warning">
+                    <strong>Not:</strong> Sesli rehberlik özelliği şu anda geliştirme aşamasındadır ve bazı
+                    tarayıcılarda sorunlu çalışabilir. Yaşayabileceğiniz rahatsızlıklar için özür dileriz. Yakında daha
+                    iyi bir deneyim sunacağız.
+                </div>
+
+                <p>Rahat bir ortamda, dikkatinizi dağıtacak şeylerden uzak bir şekilde oturun. Başlamaya hazır
+                    olduğunuzda butona tıklayın.</p>
+                <button id="start-meditation" class="btn-primary">Meditasyona Başla</button>
+            </div>
+
+            <!-- Meditasyon Uygulaması Modal -->
+            <div id="meditation-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2 id="modal-title">Meditasyon Uygulaması</h2>
+
+                    <div class="animation-container">
+                        <div id="breath-circle" class="breath-animation"></div>
+                    </div>
+
+                    <p id="guidance-text" class="guidance-text">Lütfen rahat bir pozisyon alın...</p>
+
+                    <div class="meditation-controls">
+                        <button id="start-guidance" class="btn-accent">Sesli Rehberliği Başlat</button>
+                        <button id="pause-guidance" class="btn-secondary">Duraklat</button>
+                        <button id="stop-guidance" class="btn-secondary">Durdur</button>
+                    </div>
+
+                    <div class="meditation-progress">
+                        <div class="progress-bar">
+                            <div class="progress" id="meditation-progress"></div>
+                        </div>
+                        <span id="meditation-time">00:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div> <!-- End of content-wrapper -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="index.html"><h3><i class="fas fa-brain"></i> PsykoLink</h3></a>
+                    <p>Herkes için erişilebilir psikolojik destek</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Hızlı Bağlantılar</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#services">Hizmetlerimiz</a></li>
+                        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                        <li><a href="index.html#appointment">Randevu Al</a></li>
+                        <li><a href="index.html#join">Ekibe Katıl</a></li>
+                        <li><a href="index.html#donate">Bağış Yap</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Bizi Takip Edin</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-outline-primary" onclick="showAdminLogin()">
+                            <i class="fas fa-lock"></i> Admin Girişi
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PsykoLink. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+        <!-- Admin Login Modal -->
+        <div class="modal fade custom-modal" id="adminLoginModal" tabindex="-1" style="z-index: 1060;">
+            <div class="modal-dialog modal-dialog-centered" style="z-index: 1070; position: relative;">
+                <div class="modal-content" style="box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Admin Girişi</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="adminLoginForm" onsubmit="handleAdminLogin(event)">
+                            <div class="mb-3">
+                                <label class="form-label">Kullanıcı Adı</label>
+                                <input type="text" class="form-control" name="username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Şifre</label>
+                                <input type="password" class="form-control" name="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Giriş Yap</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>    <script src="script.js"></script>
+    <script src="assets/js/meditasyonlar.js"></script>
+    <script src="assets/js/disclaimer.js"></script>
+    <script src="assets/js/modal-fix.js"></script>
+    <script src="assets/js/exercises-tracker.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="assets/js/aos-config.js"></script>
+</body>
+
+</html>

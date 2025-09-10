@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kişisel Günlük | PsykoLink</title>
+
+    <!-- Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Quill Rich Text Editor -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/daily.css">
+    <link rel="stylesheet" href="assets/css/daily-responsive.css">
+    <link rel="stylesheet" href="assets/css/left-panel.css">
+    <link rel="stylesheet" href="assets/css/exercises-panel.css">
+    <link rel="stylesheet" href="assets/css/jquery-ui-helpers.css">
+    <link rel="stylesheet" href="assets/css/panel-handles.css">
+    <link rel="stylesheet" href="assets/css/disclaimer.css">
+    <link rel="stylesheet" href="assets/css/modal-fix.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <!-- Style for navbar and footer -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        #exercisesPanel {
+            position: absolute;
+            top: 100px;
+            right: 0;
+        }
+
+        .disclaimer-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        /* Admin Modal Backdrop Fix */
+        .modal-backdrop {
+            display: none !important;
+        }
+
+        body.modal-open {
+            overflow: auto !important;
+            padding-right: 0 !important;
+        }
+
+        /* Custom modal styling */
+        .custom-modal {
+            background-color: rgba(0, 0, 0, 0.3);
+            pointer-events: auto;
+        }
+
+        .custom-modal .modal-dialog {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Sticky Footer Styles */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content-wrapper {
+            flex: 1 0 auto;
+        }
+
+        .footer {
+            flex-shrink: 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .disclaimer-content {
+            position: relative;
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-50px);
+            animation: slideIn 0.3s ease-out forwards;
+        }
+
+        .disclaimer-title {
+            color: #e74c3c;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .disclaimer-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .disclaimer-checkbox-container {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            padding: 15px;
+        }
+
+        /* Additional styles for gunluk.html with navbar */
+        .journal-header {
+            padding-top: 100px;
+            /* Add padding to account for fixed navbar */
+        }
+
+        /* Additional responsive adjustments */
+        @media (max-width: 768px) {
+            .journal-header {
+                padding-top: 80px;
+            }
+        }
+
+        /* Panel Draggable ve Resizable Stilleri */
+        .pages-panel {
+            position: relative;
+            z-index: 100;
+            cursor: default;
+        }
+
+        .pages-header {
+            cursor: move;
+            /* Sürüklenebilir başlık */
+            user-select: none;
+        }
+
+        .resize-handle {
+            position: absolute;
+            width: 8px;
+            height: 100%;
+            right: -4px;
+            /* Panel kenarından biraz dışarı taşarak daha iyi kullanım */
+            top: 0;
+            background-color: transparent;
+            cursor: e-resize;
+            /* Sağ taraf için boyutlandırma imleci */
+            z-index: 101;
+        }
+
+        /* jQuery UI override stilleri */
+        .ui-resizable-e {
+            right: -4px;
+            cursor: e-resize;
+        }
+
+        /* Draggable ve resizable paneller için yardımcı sınıflar */
+        .ui-draggable-dragging {
+            opacity: 0.9;
+            transition: none;
+        }
+
+        /* Resize işlemi sırasında içerik panelinin z-index'i düşürülür */
+        .ui-resizable-resizing+.page-content {
+            z-index: 10;
+        }
+
+        /* Draggable ve resizable panellerin sınırlarını belirgin hale getirir */
+        .ui-draggable {
+            transition: box-shadow 0.3s ease;
+        }
+
+        .ui-draggable-dragging {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        /* Modal Popup Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            backdrop-filter: blur(3px);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .modal-container {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 0;
+            min-width: 400px;
+            max-width: 90vw;
+            max-height: 90vh;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: scale(0.9);
+            animation: modalSlideIn 0.3s ease-out forwards;
+        }
+
+        .modal-header {
+            padding: 1.5rem 2rem 1rem 2rem;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            color: #333;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .modal-close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #666;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close-btn:hover {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .modal-body {
+            padding: 1.5rem 2rem;
+        }
+
+        .modal-footer {
+            padding: 1rem 2rem 1.5rem 2rem;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.75rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #1e88e5;
+            box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 80px;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background-color: #1e88e5;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1976d2;
+            transform: translateY(-1px);
+        }
+
+        /* Modal Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: scale(0.9) translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Dark mode support for modal */
+        body.dark-mode .modal-container {
+            background-color: #2d3748;
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .modal-header {
+            border-bottom-color: #4a5568;
+        }
+
+        body.dark-mode .modal-header h3 {
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .modal-footer {
+            border-top-color: #4a5568;
+        }
+
+        body.dark-mode .form-control {
+            background-color: #4a5568;
+            border-color: #718096;
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .form-control:focus {
+            border-color: #63b3ed;
+            box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.1);
+        }
+
+        body.dark-mode .modal-close-btn:hover {
+            background-color: #4a5568;
+            color: #e2e8f0;
+        }
+
+        /* Mobile responsive modal */
+        @media (max-width: 768px) {
+            .modal-container {
+                min-width: 320px;
+                margin: 1rem;
+            }
+
+            .modal-header {
+                padding: 1rem 1.5rem 0.75rem 1.5rem;
+            }
+
+            .modal-body {
+                padding: 1rem 1.5rem;
+            }
+
+            .modal-footer {
+                padding: 0.75rem 1.5rem 1rem 1.5rem;
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            .btn:last-child {
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><i class="fas fa-brain"></i> PsykoLink</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html#home">Ana Sayfa</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#services">Hizmetlerimiz</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#contact">İletişim</a></li>
+                        <li class="nav-item"><a class="nav-link" href="BilisselTerapi.html">Bilişsel Terapi</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav> <!-- Journal Main Content -->
+        <div class="journal-container">
+            <div class="journal-header">
+                <h1>Kişisel Günlük</h1>
+                <p class="journal-subheading">Düşüncelerinizi, duygularınızı ve gözlemlerinizi kaydedin</p>
+            </div>
+            <div class="journal-layout"> <!-- Pages Panel -->
+                <div class="pages-panel" id="pagesPanel">
+                    <div class="resize-handle" id="pagesResizeHandle"></div>
+                    <div class="pages-header" id="pagesHeader">
+                        <h3 class="pages-title">Sayfalar</h3>
+                        <div class="pages-actions">
+                            <button id="togglePagesButton" class="pages-action" title="Paneli Aç/Kapat">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button id="addPageButton" class="pages-action" title="Yeni Sayfa Ekle">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="pages-content" id="pagesContent">
+                        <div id="pagesList" class="pages-list">
+                            <!-- Pages will be loaded here -->
+                            <div class="empty-pages">
+                                <i class="fas fa-book-open"></i>
+                                <p class="empty-message">Henüz sayfa oluşturmadınız.<br>Yeni bir sayfa eklemek için +
+                                    butonuna tıklayın.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Journal Panel -->
+                <div class="page-content">
+                    <div class="journal-content">
+                        <div class="journal-panel">
+                            <div class="journal-tools">
+                                <div class="journal-date">
+                                    <span id="currentPageTitle">Başlıksız Sayfa</span>
+                                </div>
+                                <div class="journal-actions">
+                                    <button id="clearButton" class="btn-action" title="Temizle">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button id="downloadButton" class="btn-action" title="İndir">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                    <button id="printButton" class="btn-action" title="Yazdır">
+                                        <i class="fas fa-print"></i>
+                                    </button>
+                                    <button id="toggleThemeButton" class="btn-action" title="Tema Değiştir">
+                                        <i class="fas fa-moon"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="journal-editor-container">
+                                <div id="editor">
+                                    <!-- The editor content will be loaded here -->
+                                </div>
+                            </div>
+
+                            <div class="journal-footer">
+                                <div class="journal-status" id="saveStatus">Son kayıt: Henüz kaydedilmedi</div>
+                                <div class="journal-wordcount" id="wordCount">0 kelime</div>
+                            </div>
+
+                            <div class="journal-tags">
+                                <div class="tag-input-container">
+                                    <input type="text" id="tagInput" placeholder="Etiket ekle ve Enter'a bas"
+                                        maxlength="20">
+                                    <button id="addTagButton"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="tags-container" id="tagsContainer">
+                                    <!-- Tags will be added here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="journal-tips">
+                            <h3>Günlük Tutma İpuçları</h3>
+                            <ul>
+                                <li>Gününüzü düşünmek için zaman ayırın ve ne hissettiğinizi kaydedin.</li>
+                                <li>Yazarken kendinizi sansürlemeyin, içinizden geldiği gibi yazın.</li>
+                                <li>Minnettar olduğunuz üç şeyi her gün not edin.</li>
+                                <li>Endişelerinizi ve stres kaynaklarınızı tanımlayın.</li>
+                                <li>Hedeflerinizi, hayallerinizi ve ilerleme durumunuzu takip edin.</li>
+                            </ul>
+                        </div>
+
+                        <div class="journal-disclaimer">
+                            <p><i class="fas fa-lock"></i> Gizlilik Notu: Günlük içeriğiniz AES-256 şifreleme ile
+                                korunmaktadır. Verileriniz şifrelenmiş olarak saklanır ve yalnızca siz şifrenizi
+                                biliyorsanız erişilebilir.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Alıştırmalar Panel -->
+                <div class="exercises-panel" id="exercisesPanel">
+                    <div class="resize-handle" id="resizeHandle"></div>
+                    <div class="exercises-header" id="panelHeader">
+                        <h3 class="exercises-title">Alıştırmalar</h3>
+                        <button id="toggleExercisesButton" class="exercises-action" title="Paneli Gizle/Göster">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div id="exercisesList" class="exercises-list">
+                        <!-- Exercises will be loaded here -->
+                        <div class="empty-exercises">
+                            <i class="fas fa-dumbbell"></i>
+                            <p class="empty-message">Henüz hiçbir alıştırma kaydınız yok.<br>Bilişsel Terapi bölümündeki
+                                alıştırmaları tamamlayın.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End of content-wrapper -->
+
+    <!-- Başlık Düzenleme Modalı -->
+    <div id="titleEditModal" class="modal-overlay" style="display: none;">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Sayfa Başlığını Düzenle</h3>
+                <button id="closeModal" onclick="closeEditTitleModal()" class="modal-close-btn">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="titleEditForm">
+                    <input type="hidden" id="pageId">
+                    <div class="form-group">
+                        <label for="pageTitle">Başlık</label>
+                        <input type="text" id="pageTitle" class="form-control" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelTitleEdit" class="btn btn-secondary" onclick="closeEditTitleModal()">İptal</button>
+                <button id="saveTitleEdit" class="btn btn-primary" onclick="savePageTitle()">Kaydet</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Check session script -->
+    <script>
+        // Check if user is authenticated via session storage
+        document.addEventListener('DOMContentLoaded', function () {
+            const journalKey = sessionStorage.getItem('temp_journal_key');
+            if (!journalKey) {
+                // No authentication, redirect to home page
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3><i class="fas fa-brain"></i> PsykoLink</h3>
+                    <p>Herkes için erişilebilir psikolojik destek</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Hızlı Bağlantılar</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#services">Hizmetlerimiz</a></li>
+                        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                        <li><a href="index.html#appointment">Randevu Al</a></li>
+                        <li><a href="index.html#join">Ekibe Katıl</a></li>
+                        <li><a href="index.html#donate">Bağış Yap</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Bizi Takip Edin</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-outline-primary" onclick="showAdminLogin()">
+                            <i class="fas fa-lock"></i> Admin Girişi
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PsykoLink. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+        <!-- Admin Login Modal -->
+        <div class="modal fade custom-modal" id="adminLoginModal" tabindex="-1" style="z-index: 1060;">
+            <div class="modal-dialog modal-dialog-centered" style="z-index: 1070; position: relative;">
+                <div class="modal-content" style="box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Admin Girişi</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="adminLoginForm" onsubmit="handleAdminLogin(event)">
+                            <div class="mb-3">
+                                <label class="form-label">Kullanıcı Adı</label>
+                                <input type="text" class="form-control" name="username" required>
+                            </div>
+                            <div class="mb-3"> <label class="form-label">Şifre</label>
+                                <input type="password" class="form-control" name="password"
+                                    autocomplete="current-password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Giriş Yap</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer> <!-- Scripts -->
+    <!-- Kütüphaneler önce yüklenmeli -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- jQuery ve jQuery UI -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+    <!-- Uygulama scriptleri -->
+    <script src="script.js"></script>
+    <script src="assets/js/daily.js"></script>
+    <script src="assets/js/panel-features.js"></script>
+    <script src="assets/js/exercises-panel-features.js"></script>
+    <script src="assets/js/panel-responsive.js"></script>
+    <script src="assets/js/panel-debug.js"></script>
+    <script src="assets/js/disclaimer.js"></script>
+    <script src="assets/js/modal-fix.js"></script>
+    <script src="assets/js/exercises-tracker.js"></script>
+    <script src="assets/js/aos-config.js"></script>
+</body>
+
+</html>

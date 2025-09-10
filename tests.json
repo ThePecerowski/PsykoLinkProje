@@ -1,0 +1,680 @@
+{
+  "tests": [
+    {
+      "id": "beck-depression",
+      "name": "Beck Depresyon Ölçeği",
+      "shortDescription": "Depresyon belirtilerinin şiddetini ölçen klinik bir test",
+      "difficulty": "Orta",
+      "duration": "5-10 dk",
+      "category": "Duygusal",
+      "description": "Beck Depresyon Ölçeği (BDI-II), depresyon belirtilerinin şiddetini ve yaygınlığını değerlendirmek için dünya çapında kullanılan bir değerlendirme aracıdır. Dr. Aaron T. Beck tarafından geliştirilmiştir ve depresif belirtilerin şiddetini ölçmeyi amaçlar. Test, DSM-5 kriterlerine uygun olarak depresyon belirtilerini değerlendirir.",
+      "instructions": "Aşağıdaki her maddede, kendinizi BUGÜN DAHİL SON BİR HAFTADIR nasıl hissettiğinizi en iyi tanımlayan ifadeyi seçin. Seçtiğiniz ifadenin karşısındaki sayıyı işaretleyin.",
+      "disclaimer": "Bu test, klinik bir teşhis aracı değildir. Sonuçlar sadece bilgilendirme amaçlıdır ve bir ruh sağlığı uzmanının değerlendirmesinin yerini tutmaz.",
+      "questions": [
+        {
+          "id": 1,
+          "text": "Üzgünlük",
+          "options": [
+            { "value": 0, "text": "Kendimi üzgün hissetmiyorum." },
+            { "value": 1, "text": "Zamanımın çoğunda kendimi üzgün hissediyorum." },
+            { "value": 2, "text": "Her zaman üzgünüm." },
+            { "value": 3, "text": "O kadar üzgün ya da mutsuzum ki, buna dayanamıyorum." }
+          ],
+          "measures": "Duygudurumda çökkünlük"
+        },
+        {
+          "id": 2,
+          "text": "Karamsarlık",
+          "options": [
+            { "value": 0, "text": "Gelecek hakkında umutsuz değilim." },
+            { "value": 1, "text": "Gelecek hakkında eskisinden daha umutsuzum." },
+            { "value": 2, "text": "İşlerin düzeleceğini ummuyorum." },
+            { "value": 3, "text": "Geleceğimin umutsuz olduğunu ve koşulların sadece daha kötüye gideceğini düşünüyorum." }
+          ],
+          "measures": "Gelecek beklentisi ve karamsarlık"
+        },
+        {
+          "id": 3,
+          "text": "Geçmiş Başarısızlıklar",
+          "options": [
+            { "value": 0, "text": "Kendimi başarısız görmüyorum." },
+            { "value": 1, "text": "Gereğinden fazla başarısızlığım oldu." },
+            { "value": 2, "text": "Geriye dönüp baktığımda, çok sayıda başarısızlık görüyorum." },
+            { "value": 3, "text": "Kendimi tamamen başarısız bir insan olarak görüyorum." }
+          ],
+          "measures": "Öz-değerlendirme ve başarısızlık algısı"
+        },
+        {
+          "id": 4,
+          "text": "Zevk Alamama",
+          "options": [
+            { "value": 0, "text": "Eskiden aldığım zevkleri aynı ölçüde alıyorum." },
+            { "value": 1, "text": "Eskisi kadar zevk alamıyorum." },
+            { "value": 2, "text": "Artık hiçbir şeyden gerçek bir zevk alamıyorum." },
+            { "value": 3, "text": "Her şey bana sıkıcı geliyor." }
+          ],
+          "measures": "Anhedoni (zevk alamama)"
+        },
+        {
+          "id": 5,
+          "text": "Suçluluk Duyguları",
+          "options": [
+            { "value": 0, "text": "Kendimi özellikle suçlu hissetmiyorum." },
+            { "value": 1, "text": "Yaptığım veya yapmam gereken şeyler için suçlu hissediyorum." },
+            { "value": 2, "text": "Çoğu zaman kendimi suçlu hissediyorum." },
+            { "value": 3, "text": "Her zaman kendimi suçlu hissediyorum." }
+          ],
+          "measures": "Öz-eleştiri ve suçluluk hissi"
+        },
+        {
+          "id": 6,
+          "text": "Enerji Kaybı",
+          "options": [
+            { "value": 0, "text": "Eskisi kadar enerjim var." },
+            { "value": 1, "text": "Eskisine göre daha az enerjim var." },
+            { "value": 2, "text": "Birçok şey yapmak için yeterli enerjim yok." },
+            { "value": 3, "text": "Hiçbir şey yapmak için yeterli enerjim yok." }
+          ],
+          "measures": "Fiziksel enerji ve motivasyon"
+        },
+        {
+          "id": 7,
+          "text": "Uyku Düzeninde Değişiklik",
+          "options": [
+            { "value": 0, "text": "Uyku düzenimde herhangi bir değişiklik yok." },
+            { "value": 1, "text": "Eskisinden biraz daha fazla/az uyuyorum." },
+            { "value": 2, "text": "Eskisinden çok daha fazla/az uyuyorum." },
+            { "value": 3, "text": "Gün boyunca uyuyorum veya geceleri en az 1-2 saat uyuyamıyorum." }
+          ],
+          "measures": "Uyku bozuklukları"
+        }
+      ],
+      "scoring": {
+        "ranges": [
+          { "min": 0, "max": 9, "result": "Minimal Depresyon", "description": "Depresif belirtiler minimal düzeydedir. Genel ruh haliniz iyi görünüyor." },
+          { "min": 10, "max": 16, "result": "Hafif Depresyon", "description": "Hafif düzeyde depresif belirtiler gözleniyor. Kendinize dikkat etmeniz ve bu belirtileri izlemeniz önerilir." },
+          { "min": 17, "max": 29, "result": "Orta Düzeyde Depresyon", "description": "Orta düzeyde depresif belirtiler gösteriyorsunuz. Bir ruh sağlığı uzmanına danışmanız önerilir." },
+          { "min": 30, "max": 63, "result": "Şiddetli Depresyon", "description": "Şiddetli depresif belirtiler gözleniyor. En kısa sürede bir psikiyatrist veya klinik psikologla görüşmeniz önemle tavsiye edilir." }
+        ]
+      }
+    },
+    {
+      "id": "gad7-anxiety",
+      "name": "Kaygı (Anksiyete) Testi (GAD-7)",
+      "shortDescription": "Yaygın anksiyete bozukluğunu tarama ve şiddetini ölçme testi",
+      "difficulty": "Kolay",
+      "duration": "3-5 dk",
+      "category": "Duygusal",
+      "description": "Yaygın Anksiyete Bozukluğu Testi (GAD-7), Robert L. Spitzer, Kurt Kroenke ve meslektaşları tarafından geliştirilen, yaygın anksiyete bozukluğunu taramak için kullanılan kısa bir öz-bildirim ölçeğidir. Klinik ortamlarda yaygın olarak kullanılan bu test, anksiyete belirtilerinin şiddetini değerlendirir.",
+      "instructions": "Son 2 hafta içinde, aşağıdaki sorunlardan her biri sizi ne sıklıkla rahatsız etti? Lütfen her soru için size en uygun seçeneği işaretleyin.",
+      "disclaimer": "Bu test, klinik bir teşhis aracı değildir. Sonuçlar sadece bilgilendirme amaçlıdır ve bir ruh sağlığı uzmanının değerlendirmesinin yerini tutmaz.",
+      "questions": [
+        {
+          "id": 1,
+          "text": "Sinirli, endişeli veya gergin hissetmek",
+          "options": [
+            { "value": 0, "text": "Hiç" },
+            { "value": 1, "text": "Birkaç gün" },
+            { "value": 2, "text": "Günlerin yarısından fazlasında" },
+            { "value": 3, "text": "Neredeyse her gün" }
+          ],
+          "measures": "Subjektif anksiyete ve endişe hissi"
+        },
+        {
+          "id": 2,
+          "text": "Endişelenmeyi durduramama veya endişeyi kontrol edememe",
+          "options": [
+            { "value": 0, "text": "Hiç" },
+            { "value": 1, "text": "Birkaç gün" },
+            { "value": 2, "text": "Günlerin yarısından fazlasında" },
+            { "value": 3, "text": "Neredeyse her gün" }
+          ],
+          "measures": "Kontrol edilemeyen endişe"
+        },
+        {
+          "id": 3,
+          "text": "Çok fazla ve farklı konularda endişelenme",
+          "options": [
+            { "value": 0, "text": "Hiç" },
+            { "value": 1, "text": "Birkaç gün" },
+            { "value": 2, "text": "Günlerin yarısından fazlasında" },
+            { "value": 3, "text": "Neredeyse her gün" }
+          ],
+          "measures": "Yaygınlaşmış endişe"
+        },
+        {
+          "id": 4,
+          "text": "Gevşeyememek, rahat hissedememek",
+          "options": [
+            { "value": 0, "text": "Hiç" },
+            { "value": 1, "text": "Birkaç gün" },
+            { "value": 2, "text": "Günlerin yarısından fazlasında" },
+            { "value": 3, "text": "Neredeyse her gün" }
+          ],
+          "measures": "Fiziksel gerginlik"
+        },
+        {
+          "id": 5,
+          "text": "Öyle huzursuz olmak ki yerinde duramama",
+          "options": [
+            { "value": 0, "text": "Hiç" },
+            { "value": 1, "text": "Birkaç gün" },
+            { "value": 2, "text": "Günlerin yarısından fazlasında" },
+            { "value": 3, "text": "Neredeyse her gün" }
+          ],
+          "measures": "Psikomotor ajitasyon"
+        },
+        {
+          "id": 6,
+          "text": "Kolayca kızma veya sinirlenme",
+          "options": [
+            { "value": 0, "text": "Hiç" },
+            { "value": 1, "text": "Birkaç gün" },
+            { "value": 2, "text": "Günlerin yarısından fazlasında" },
+            { "value": 3, "text": "Neredeyse her gün" }
+          ],
+          "measures": "İrritabilite"
+        },
+        {
+          "id": 7,
+          "text": "Kötü bir şey olacakmış gibi korkma",
+          "options": [
+            { "value": 0, "text": "Hiç" },
+            { "value": 1, "text": "Birkaç gün" },
+            { "value": 2, "text": "Günlerin yarısından fazlasında" },
+            { "value": 3, "text": "Neredeyse her gün" }
+          ],
+          "measures": "Felaketleştirme"
+        }
+      ],
+      "scoring": {
+        "ranges": [
+          { "min": 0, "max": 4, "result": "Minimal Anksiyete", "description": "Anksiyete belirtileri minimal düzeydedir." },
+          { "min": 5, "max": 9, "result": "Hafif Anksiyete", "description": "Hafif düzeyde anksiyete belirtileri gözlenmektedir. Duygularınızı ve stres seviyenizi takip etmeniz faydalı olabilir." },
+          { "min": 10, "max": 14, "result": "Orta Düzeyde Anksiyete", "description": "Orta düzeyde anksiyete belirtileri gösteriyorsunuz. Bir ruh sağlığı uzmanına danışmanız önerilir." },
+          { "min": 15, "max": 21, "result": "Şiddetli Anksiyete", "description": "Şiddetli anksiyete belirtileri gözlenmektedir. En kısa sürede bir ruh sağlığı uzmanına danışmanız önemle tavsiye edilir." }
+        ]
+      }
+    },
+    {
+      "id": "stress-level",
+      "name": "Stres Seviyesi Testi",
+      "shortDescription": "Mevcut stres seviyenizi ve stres kaynaklarınızı belirlemeye yönelik test",
+      "difficulty": "Kolay",
+      "duration": "5 dk",
+      "category": "Duygusal",
+      "description": "Bu test, mevcut stres seviyenizi ve stres kaynaklarınızı belirlemeye yardımcı olur. Stres, günlük yaşamın normal bir parçasıdır, ancak uzun süre yüksek stres seviyelerine maruz kalmak, fiziksel ve psikolojik sağlığınızı olumsuz etkileyebilir.",
+      "instructions": "Son bir ay içinde kendinizi ne sıklıkla aşağıdaki gibi hissettiğinizi en iyi tanımlayan seçeneği işaretleyin.",
+      "disclaimer": "Bu test, klinik bir teşhis aracı değildir. Sonuçlar sadece bilgilendirme amaçlıdır ve bir ruh sağlığı uzmanının değerlendirmesinin yerini tutmaz.",
+      "questions": [
+        {
+          "id": 1,
+          "text": "Beklenmedik bir şey olduğunda ne sıklıkla sinirleniyor veya strese giriyorsunuz?",
+          "options": [
+            { "value": 0, "text": "Hiçbir zaman" },
+            { "value": 1, "text": "Neredeyse hiçbir zaman" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Çok sık" }
+          ],
+          "measures": "Beklenmedik durumlara tepki"
+        },
+        {
+          "id": 2,
+          "text": "Hayatınızdaki önemli şeyleri ne sıklıkla kontrol edemediğinizi hissediyorsunuz?",
+          "options": [
+            { "value": 0, "text": "Hiçbir zaman" },
+            { "value": 1, "text": "Neredeyse hiçbir zaman" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Çok sık" }
+          ],
+          "measures": "Kontrol hissi"
+        },
+        {
+          "id": 3,
+          "text": "Ne sıklıkla sinirli ve stresli hissediyorsunuz?",
+          "options": [
+            { "value": 0, "text": "Hiçbir zaman" },
+            { "value": 1, "text": "Neredeyse hiçbir zaman" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Çok sık" }
+          ],
+          "measures": "Genel stres seviyesi"
+        },
+        {
+          "id": 4,
+          "text": "Ne sıklıkla sorunlarınızın üstesinden gelemeyeceğinizi hissediyorsunuz?",
+          "options": [
+            { "value": 0, "text": "Hiçbir zaman" },
+            { "value": 1, "text": "Neredeyse hiçbir zaman" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Çok sık" }
+          ],
+          "measures": "Sorun çözme yeteneği algısı"
+        },
+        {
+          "id": 5,
+          "text": "İşlerin istediğiniz gibi gittiğini ne sıklıkla hissediyorsunuz?",
+          "options": [
+            { "value": 4, "text": "Hiçbir zaman" },
+            { "value": 3, "text": "Neredeyse hiçbir zaman" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 1, "text": "Sık sık" },
+            { "value": 0, "text": "Çok sık" }
+          ],
+          "measures": "Yaşam memnuniyeti"
+        }
+      ],
+      "scoring": {
+        "ranges": [
+          { "min": 0, "max": 7, "result": "Düşük Stres", "description": "Stres seviyeniz düşük görünüyor. Etkili stres yönetimi becerilerine sahip olabilirsiniz." },
+          { "min": 8, "max": 15, "result": "Orta Düzey Stres", "description": "Orta düzeyde stres yaşıyorsunuz. Stres yönetimi tekniklerinden faydalanabilirsiniz." },
+          { "min": 16, "max": 20, "result": "Yüksek Stres", "description": "Yüksek düzeyde stres yaşıyorsunuz. Stres kaynaklarınızı belirlemeniz ve stres yönetimi tekniklerini uygulamanız önerilir." }
+        ]
+      }
+    },
+    {
+      "id": "cognitive-distortions",
+      "name": "Bilişsel Çarpıtma Farkındalık Testi",
+      "shortDescription": "Düşünce hatalarını tanıma ve tespit etme becerinizi ölçen test",
+      "difficulty": "Orta",
+      "duration": "7-10 dk",
+      "category": "Bilişsel",
+      "description": "Bu test, bilişsel çarpıtmalarınızı (düşünce hatalarınızı) tanımanıza ve tespit etmenize yardımcı olmak için tasarlanmıştır. Bilişsel çarpıtmalar, gerçeği çarpıtan veya yanlış yorumlayan düşünce kalıplarıdır. Bu çarpıtmaları tanımak, daha sağlıklı düşünme biçimleri geliştirmenin ilk adımıdır.",
+      "instructions": "Aşağıdaki senaryolarda kendinizi ne sıklıkla benzer şekilde düşünürken bulduğunuzu değerlendirin.",
+      "disclaimer": "Bu test, klinik bir teşhis aracı değildir. Sonuçlar sadece bilgilendirme amaçlıdır ve bir ruh sağlığı uzmanının değerlendirmesinin yerini tutmaz.",
+      "questions": [
+        {
+          "id": 1,
+          "text": "Bir görevde küçük bir hata yaptığınızda, 'Her şeyi berbat ettim, tamamen başarısızım' diye düşünür müsünüz?",
+          "options": [
+            { "value": 0, "text": "Hiçbir zaman" },
+            { "value": 1, "text": "Nadiren" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Her zaman" }
+          ],
+          "measures": "Ya hep ya hiç düşüncesi"
+        },
+        {
+          "id": 2,
+          "text": "Olumsuz bir olay yaşadığınızda, 'Bu her zaman benim başıma geliyor, hiçbir şey asla iyi gitmiyor' diye düşünür müsünüz?",
+          "options": [
+            { "value": 0, "text": "Hiçbir zaman" },
+            { "value": 1, "text": "Nadiren" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Her zaman" }
+          ],
+          "measures": "Aşırı genelleme"
+        },
+        {
+          "id": 3,
+          "text": "Bir arkadaşınız mesajınıza hemen cevap vermediğinde, 'Kesinlikle benden hoşlanmıyor' veya 'Bir şeyi yanlış yaptım' diye düşünür müsünüz?",
+          "options": [
+            { "value": 0, "text": "Hiçbir zaman" },
+            { "value": 1, "text": "Nadiren" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Her zaman" }
+          ],
+          "measures": "Zihin okuma"
+        },
+        {
+          "id": 4,
+          "text": "Gelecekteki bir olay hakkında endişelenirken, 'Ya korkunç bir şey olursa?' diye düşünüp en kötü senaryoları mı hayal edersiniz?",
+          "options": [
+            { "value": 0, "text": "Hiçbir zaman" },
+            { "value": 1, "text": "Nadiren" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Her zaman" }
+          ],
+          "measures": "Felaketleştirme"
+        },
+        {
+          "id": 5,
+          "text": "Başarılarınızı veya aldığınız takdirleri, 'Şanslıydım' veya 'Herkes bunu yapabilir' diyerek küçümser misiniz?",
+          "options": [
+            { "value": 0, "text": "Hiçbir zaman" },
+            { "value": 1, "text": "Nadiren" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Her zaman" }
+          ],
+          "measures": "Olumluyu geçersiz kılma"
+        }
+      ],
+      "scoring": {
+        "ranges": [
+          { "min": 0, "max": 5, "result": "Düşük Düzeyde Bilişsel Çarpıtma", "description": "Düşünce hatalarını tanıma konusunda iyi bir farkındalığa sahip olabilirsiniz." },
+          { "min": 6, "max": 12, "result": "Orta Düzeyde Bilişsel Çarpıtma", "description": "Bazı düşünce hatalarını yapıyor olabilirsiniz. Bu düşünce kalıplarını fark etmeye çalışmak faydalı olabilir." },
+          { "min": 13, "max": 20, "result": "Yüksek Düzeyde Bilişsel Çarpıtma", "description": "Düşünce hatalarını sıklıkla yapıyor olabilirsiniz. Bilişsel yeniden yapılandırma teknikleri öğrenmek size yardımcı olabilir." }
+        ]
+      }
+    },
+    {
+      "id": "emotion-recognition",
+      "name": "Duygu Tanıma Testi",
+      "shortDescription": "Duygularınızı tanıma ve ifade etme becerinizi değerlendiren test",
+      "difficulty": "Orta",
+      "duration": "6-8 dk",
+      "category": "Duygusal",
+      "description": "Bu test, duygusal farkındalığınızı ve duygularınızı tanıma, adlandırma ve ifade etme becerinizi değerlendirmek için tasarlanmıştır. Duygusal zeka, kişisel ilişkilerinizden profesyonel yaşamınıza kadar hayatınızın birçok alanında başarınızı etkiler.",
+      "instructions": "Aşağıdaki senaryolarda belirtilen durumları yaşadığınızda genellikle ne hissettiğinizi en iyi tanımlayan seçeneği işaretleyin.",
+      "disclaimer": "Bu test, klinik bir teşhis aracı değildir. Sonuçlar sadece bilgilendirme amaçlıdır ve bir ruh sağlığı uzmanının değerlendirmesinin yerini tutmaz.",
+      "questions": [
+        {
+          "id": 1,
+          "text": "Bir tartışma sırasında, duygularınızı tanımlamak ve ifade etmek sizin için ne kadar kolaydır?",
+          "options": [
+            { "value": 0, "text": "Çok zor, genellikle ne hissettiğimi bilemem" },
+            { "value": 1, "text": "Zor, duygularımı tanımlamakta zorlanırım" },
+            { "value": 2, "text": "Bazen kolay, bazen zor" },
+            { "value": 3, "text": "Genellikle kolay, duygularımı tanımlayabilirim" },
+            { "value": 4, "text": "Çok kolay, duygularımı net bir şekilde tanımlayabilirim" }
+          ],
+          "measures": "Duygu tanımlama becerisi"
+        },
+        {
+          "id": 2,
+          "text": "Üzgün olduğunuzda, bu duygunun farklı yoğunluklarını (hafif üzüntü, keder, umutsuzluk gibi) ayırt edebilir misiniz?",
+          "options": [
+            { "value": 0, "text": "Hiçbir zaman" },
+            { "value": 1, "text": "Nadiren" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Her zaman" }
+          ],
+          "measures": "Duygu yoğunluğunu ayırt etme"
+        },
+        {
+          "id": 3,
+          "text": "Karmaşık duygular (örneğin aynı anda hem mutlu hem endişeli hissetmek) yaşadığınızda, bu duyguları ayırt edebilir misiniz?",
+          "options": [
+            { "value": 0, "text": "Hiçbir zaman" },
+            { "value": 1, "text": "Nadiren" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Her zaman" }
+          ],
+          "measures": "Karmaşık duyguları ayırt etme"
+        },
+        {
+          "id": 4,
+          "text": "Başkalarının duygularını yüz ifadelerinden, ses tonundan veya beden dilinden ne kadar iyi anlayabilirsiniz?",
+          "options": [
+            { "value": 0, "text": "Çok zayıf" },
+            { "value": 1, "text": "Zayıf" },
+            { "value": 2, "text": "Orta" },
+            { "value": 3, "text": "İyi" },
+            { "value": 4, "text": "Çok iyi" }
+          ],
+          "measures": "Empati ve sosyal duygu tanıma"
+        },
+        {
+          "id": 5,
+          "text": "Duygularınızın davranışlarınızı nasıl etkilediğinin farkında mısınız?",
+          "options": [
+            { "value": 0, "text": "Hiçbir zaman" },
+            { "value": 1, "text": "Nadiren" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Her zaman" }
+          ],
+          "measures": "Duygu-davranış ilişkisi farkındalığı"
+        }
+      ],
+      "scoring": {
+        "ranges": [
+          { "min": 0, "max": 8, "result": "Düşük Duygusal Farkındalık", "description": "Duygularınızı tanıma ve ifade etme konusunda zorluk yaşıyor olabilirsiniz. Duygusal farkındalık geliştirmek için çalışmak faydalı olabilir." },
+          { "min": 9, "max": 14, "result": "Orta Düzey Duygusal Farkındalık", "description": "Duygularınızı kısmen tanıyabiliyorsunuz. Duygusal kelime dağarcığınızı geliştirmek size yardımcı olabilir." },
+          { "min": 15, "max": 20, "result": "Yüksek Duygusal Farkındalık", "description": "Duygularınızı tanıma ve ifade etme konusunda iyi bir beceriye sahipsiniz. Bu, kişilerarası ilişkilerinizde size avantaj sağlayabilir." }
+        ]
+      }
+    },
+    {
+      "id": "relationship-satisfaction",
+      "name": "İlişki Memnuniyeti Testi",
+      "shortDescription": "Romantik ilişki memnuniyetinizi değerlendiren test",
+      "difficulty": "Kolay",
+      "duration": "5 dk",
+      "category": "İlişkisel",
+      "description": "Bu test, mevcut romantik ilişkinizden duyduğunuz memnuniyeti değerlendirmenize yardımcı olur. İlişki memnuniyeti, genel psikolojik iyi oluşunuzu ve yaşam kalitenizi etkiler.",
+      "instructions": "Aşağıdaki ifadeleri okuyun ve mevcut ilişkinizi düşünerek size en uygun seçeneği işaretleyin. Şu anda bir ilişki içinde değilseniz, en son ilişkinizi düşünün.",
+      "disclaimer": "Bu test, klinik bir teşhis aracı değildir. Sonuçlar sadece bilgilendirme amaçlıdır ve bir ruh sağlığı uzmanının değerlendirmesinin yerini tutmaz.",
+      "questions": [
+        {
+          "id": 1,
+          "text": "Genel olarak, ilişkimden memnunum.",
+          "options": [
+            { "value": 0, "text": "Kesinlikle katılmıyorum" },
+            { "value": 1, "text": "Katılmıyorum" },
+            { "value": 2, "text": "Ne katılıyorum ne katılmıyorum" },
+            { "value": 3, "text": "Katılıyorum" },
+            { "value": 4, "text": "Kesinlikle katılıyorum" }
+          ],
+          "measures": "Genel ilişki memnuniyeti"
+        },
+        {
+          "id": 2,
+          "text": "Partnerimle iyi bir iletişimimiz var.",
+          "options": [
+            { "value": 0, "text": "Kesinlikle katılmıyorum" },
+            { "value": 1, "text": "Katılmıyorum" },
+            { "value": 2, "text": "Ne katılıyorum ne katılmıyorum" },
+            { "value": 3, "text": "Katılıyorum" },
+            { "value": 4, "text": "Kesinlikle katılıyorum" }
+          ],
+          "measures": "İletişim kalitesi"
+        },
+        {
+          "id": 3,
+          "text": "Partnerim beni anlar ve duygularıma değer verir.",
+          "options": [
+            { "value": 0, "text": "Kesinlikle katılmıyorum" },
+            { "value": 1, "text": "Katılmıyorum" },
+            { "value": 2, "text": "Ne katılıyorum ne katılmıyorum" },
+            { "value": 3, "text": "Katılıyorum" },
+            { "value": 4, "text": "Kesinlikle katılıyorum" }
+          ],
+          "measures": "Duygusal destek ve anlayış"
+        },
+        {
+          "id": 4,
+          "text": "İlişkimizde çatışmaları etkili bir şekilde çözebiliyoruz.",
+          "options": [
+            { "value": 0, "text": "Kesinlikle katılmıyorum" },
+            { "value": 1, "text": "Katılmıyorum" },
+            { "value": 2, "text": "Ne katılıyorum ne katılmıyorum" },
+            { "value": 3, "text": "Katılıyorum" },
+            { "value": 4, "text": "Kesinlikle katılıyorum" }
+          ],
+          "measures": "Çatışma çözümü"
+        },
+        {
+          "id": 5,
+          "text": "Partnerimle birlikte geleceğe dair planlar yapmaktan keyif alırım.",
+          "options": [
+            { "value": 0, "text": "Kesinlikle katılmıyorum" },
+            { "value": 1, "text": "Katılmıyorum" },
+            { "value": 2, "text": "Ne katılıyorum ne katılmıyorum" },
+            { "value": 3, "text": "Katılıyorum" },
+            { "value": 4, "text": "Kesinlikle katılıyorum" }
+          ],
+          "measures": "Gelecek yönelimi ve bağlılık"
+        }
+      ],
+      "scoring": {
+        "ranges": [
+          { "min": 0, "max": 7, "result": "Düşük İlişki Memnuniyeti", "description": "İlişkinizde memnuniyet düzeyiniz düşük görünüyor. İlişkinizi geliştirmek için çift terapisi veya ilişki danışmanlığı düşünebilirsiniz." },
+          { "min": 8, "max": 14, "result": "Orta Düzey İlişki Memnuniyeti", "description": "İlişkinizde bazı olumlu yönler olsa da, geliştirilmesi gereken alanlar olabilir. İletişim becerileri üzerinde çalışmak faydalı olabilir." },
+          { "min": 15, "max": 20, "result": "Yüksek İlişki Memnuniyeti", "description": "İlişkinizden memnun görünüyorsunuz. Bu olumlu ilişki dinamiklerini sürdürmek için iletişim ve anlayışı korumaya devam edin." }
+        ]
+      }
+    },
+    {
+      "id": "self-compassion",
+      "name": "Öz-şefkat ve Öz-farkındalık Testi",
+      "shortDescription": "Kendinize karşı tutumunuzu ve öz-farkındalığınızı değerlendiren test",
+      "difficulty": "Orta",
+      "duration": "7 dk",
+      "category": "Bilişsel",
+      "description": "Bu test, kendinize gösterdiğiniz şefkat düzeyini ve öz-farkındalığınızı değerlendirmenize yardımcı olur. Öz-şefkat, psikolojik dayanıklılık ve iyi oluş için önemli bir faktördür.",
+      "instructions": "Aşağıdaki ifadeleri okuyun ve sizi en iyi tanımlayan seçeneği işaretleyin.",
+      "disclaimer": "Bu test, klinik bir teşhis aracı değildir. Sonuçlar sadece bilgilendirme amaçlıdır ve bir ruh sağlığı uzmanının değerlendirmesinin yerini tutmaz.",
+      "questions": [
+        {
+          "id": 1,
+          "text": "Zorluk yaşadığımda, hatalarımı ve yetersizliklerimi anlayışla karşılarım.",
+          "options": [
+            { "value": 0, "text": "Neredeyse hiçbir zaman" },
+            { "value": 1, "text": "Nadiren" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Neredeyse her zaman" }
+          ],
+          "measures": "Öz-şefkat"
+        },
+        {
+          "id": 2,
+          "text": "Acı veren düşünceler ve duygularım olduğunda, onları dengeli bir bakış açısıyla görmeye çalışırım.",
+          "options": [
+            { "value": 0, "text": "Neredeyse hiçbir zaman" },
+            { "value": 1, "text": "Nadiren" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Neredeyse her zaman" }
+          ],
+          "measures": "Farkındalık"
+        },
+        {
+          "id": 3,
+          "text": "Başarısız olduğumda, kendime karşı eleştirel ve yargılayıcı olurum.",
+          "options": [
+            { "value": 4, "text": "Neredeyse hiçbir zaman" },
+            { "value": 3, "text": "Nadiren" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 1, "text": "Sık sık" },
+            { "value": 0, "text": "Neredeyse her zaman" }
+          ],
+          "measures": "Öz-yargılama"
+        },
+        {
+          "id": 4,
+          "text": "Kendi duygularımı ve düşüncelerimi, onlara kapılmadan veya aşırı özdeşleşmeden gözlemleyebilirim.",
+          "options": [
+            { "value": 0, "text": "Neredeyse hiçbir zaman" },
+            { "value": 1, "text": "Nadiren" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Neredeyse her zaman" }
+          ],
+          "measures": "Aşırı özdeşleşme"
+        },
+        {
+          "id": 5,
+          "text": "Zor zamanlar geçirdiğimde, kendime ihtiyacım olan özen ve şefkati gösteririm.",
+          "options": [
+            { "value": 0, "text": "Neredeyse hiçbir zaman" },
+            { "value": 1, "text": "Nadiren" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Neredeyse her zaman" }
+          ],
+          "measures": "Öz-nezaket"
+        }
+      ],
+      "scoring": {
+        "ranges": [
+          { "min": 0, "max": 7, "result": "Düşük Öz-şefkat", "description": "Kendinize karşı eleştirel olma eğiliminiz olabilir. Öz-şefkat uygulamaları geliştirmek size fayda sağlayabilir." },
+          { "min": 8, "max": 14, "result": "Orta Düzey Öz-şefkat", "description": "Kendinize karşı bazen şefkatli, bazen eleştirel olabiliyorsunuz. Öz-şefkat becerilerinizi geliştirmeye devam etmek faydalı olabilir." },
+          { "min": 15, "max": 20, "result": "Yüksek Öz-şefkat", "description": "Kendinize karşı şefkatli bir tutum sergiliyorsunuz. Bu olumlu öz-ilişkiyi sürdürmeye devam edin." }
+        ]
+      }
+    },
+    {
+      "id": "addiction-risk",
+      "name": "Bağımlılık Risk Testi",
+      "shortDescription": "Çeşitli bağımlılıklara yatkınlığınızı ölçen test",
+      "difficulty": "Orta",
+      "duration": "8 dk",
+      "category": "Davranışsal",
+      "description": "Bu test, çeşitli madde veya davranış bağımlılıklarına (sigara, alkol, teknoloji, sosyal medya vb.) yönelik risk faktörlerinizi değerlendirmenize yardımcı olur. Bağımlılık riski, genetik, psikolojik ve çevresel faktörlerin bir kombinasyonundan etkilenir.",
+      "instructions": "Aşağıdaki ifadeleri okuyun ve size en uygun seçeneği işaretleyin.",
+      "disclaimer": "Bu test, klinik bir teşhis aracı değildir. Sonuçlar sadece bilgilendirme amaçlıdır ve bir ruh sağlığı uzmanının değerlendirmesinin yerini tutmaz.",
+      "questions": [
+        {
+          "id": 1,
+          "text": "Stres veya olumsuz duygularla başa çıkmak için belirli bir madde (sigara, alkol vb.) veya aktiviteye (telefon kullanımı, oyun oynama vb.) yönelir misiniz?",
+          "options": [
+            { "value": 0, "text": "Hiçbir zaman" },
+            { "value": 1, "text": "Nadiren" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Her zaman" }
+          ],
+          "measures": "Duygu düzenleme aracı olarak kullanma"
+        },
+        {
+          "id": 2,
+          "text": "Belirli bir madde kullanımınızı veya davranışınızı kontrol etmekte zorlanıyor musunuz?",
+          "options": [
+            { "value": 0, "text": "Hiçbir zaman" },
+            { "value": 1, "text": "Nadiren" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Her zaman" }
+          ],
+          "measures": "Kontrol kaybı"
+        },
+        {
+          "id": 3,
+          "text": "Belirli bir madde veya davranışı bırakmaya çalıştığınızda, fiziksel veya duygusal rahatsızlık hisseder misiniz?",
+          "options": [
+            { "value": 0, "text": "Hiçbir zaman" },
+            { "value": 1, "text": "Nadiren" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Her zaman" }
+          ],
+          "measures": "Yoksunluk belirtileri"
+        },
+        {
+          "id": 4,
+          "text": "Ailenizde bağımlılık sorunları olan kişiler var mı?",
+          "options": [
+            { "value": 0, "text": "Hayır, hiç yok" },
+            { "value": 1, "text": "Uzak akrabalarda var" },
+            { "value": 2, "text": "Belki olabilir, emin değilim" },
+            { "value": 3, "text": "Yakın akrabalarda var" },
+            { "value": 4, "text": "Evet, birinci derece akrabalarda var" }
+          ],
+          "measures": "Genetik yatkınlık"
+        },
+        {
+          "id": 5,
+          "text": "Günlük sorumluluklarınızı (iş, okul, aile) yerine getirmenizi engelleyecek kadar bir madde kullanımınız veya davranışınız oldu mu?",
+          "options": [
+            { "value": 0, "text": "Hiçbir zaman" },
+            { "value": 1, "text": "Nadiren" },
+            { "value": 2, "text": "Bazen" },
+            { "value": 3, "text": "Sık sık" },
+            { "value": 4, "text": "Her zaman" }
+          ],
+          "measures": "İşlevsellikte bozulma"
+        }
+      ],
+      "scoring": {
+        "ranges": [
+          { "min": 0, "max": 7, "result": "Düşük Bağımlılık Riski", "description": "Bağımlılık geliştirme riskiniz düşük görünüyor. Sağlıklı alışkanlıklarınızı sürdürün." },
+          { "min": 8, "max": 14, "result": "Orta Düzey Bağımlılık Riski", "description": "Bazı bağımlılık risk faktörlerine sahip olabilirsiniz. Davranışlarınızı ve alışkanlıklarınızı gözlemlemeye devam edin." },
+          { "min": 15, "max": 20, "result": "Yüksek Bağımlılık Riski", "description": "Bağımlılık geliştirme riskiniz yüksek görünüyor. Bir ruh sağlığı uzmanına danışmanız önerilir." }
+        ]
+      }
+    }
+  ]
+}

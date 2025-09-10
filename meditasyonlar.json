@@ -1,0 +1,404 @@
+{
+  "meditasyonlar": [
+    {
+      "id": "nefes-farkindaligi",
+      "title": "Nefes Farkındalığı Meditasyonu",
+      "description": "Kaygıyı azaltma, ana ana odaklanma ve rahatlama için temel meditasyon pratiği.",
+      "audioSrc": "meditations/nefes-farkindaligi.mp3",
+      "audioBase64": "data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA/+M4wAAAAAAAAAAAAEluZm8AAAAPAAAAEAAABVgANTU1NTU1Q0NDQ0NDUFBQUFBQXl5eXl5ebGxsbGxseXl5eXl5hoaGhoaGk5OTk5OTn5+fn5+frKysrKysuLi4uLi4xcXFxcXF0tLS0tLS3t7e3t7e6urq6urq9/f39/f3/v7+/v7+AAAAAAAAAAAAAAAA/+MYxAALACwAAP/AADEAAAExTFRUUUguNS4xMVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV/+MYxDsAAANIAAAAAFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+      "about": "Nefes farkındalığı meditasyonu, zihnin şu anki ana odaklanmasını sağlayan, kaygı ve stresi azaltan temel bir mindfulness pratiğidir. Bu meditasyon, nefesinizi takip ederek zihinsel netlik kazanmanıza yardımcı olur.",
+      "benefits": [
+        "Kaygı seviyesinde azalma",
+        "Zihinsel netlik",
+        "Stres yönetimi",
+        "Dikkati artırma",
+        "Kan basıncında düşüş"
+      ],
+      "bgImages": [
+        "images/meditation/bg-blue-1.jpg",
+        "images/meditation/bg-blue-2.jpg",
+        "images/meditation/bg-blue-3.jpg"
+      ],
+      "textGuide": [
+        "Rahat bir pozisyonda oturun ve gözlerinizi kapatın.",
+        "Nefesinize odaklanın ve doğal akışını hissedin.",
+        "Nefes alırken göğsünüzün ve karnınızın nasıl genişlediğini hissedin.",
+        "Nefes verirken bedeninizin nasıl gevşediğini hissedin.",
+        "Zihniniz dağıldığında, nazikçe dikkatinizi tekrar nefesinize yönlendirin.",
+        "Her nefesle biraz daha derinleşin ve rahatladığınızı hissedin."
+      ],
+      "practiceGuide": {
+        "title": "Nefes Farkındalığı Nasıl Uygulanır?",
+        "steps": [
+          {
+            "step": 1,
+            "instruction": "Rahat bir oturma pozisyonu bulun",
+            "detail": "Dik ama rahat bir şekilde oturun. Bir sandalyede, yastıkta veya minderde oturabilirsiniz. Sırtınızın düz olması önemlidir."
+          },
+          {
+            "step": 2,
+            "instruction": "Bedeninizi rahatlatın",
+            "detail": "Omuzlarınızı, çenenizi ve yüz kaslarınızı gevşetin. Vücudunuzdaki gerginliği birkaç derin nefesle serbest bırakın."
+          },
+          {
+            "step": 3,
+            "instruction": "Nefes akışını hissedin",
+            "detail": "Dikkatinizi burun deliklerinizden giren ve çıkan havaya odaklayın. Nefesinizi kontrol etmeye çalışmayın, sadece gözlemleyin."
+          },
+          {
+            "step": 4,
+            "instruction": "Nefes döngüsünü takip edin",
+            "detail": "Nefesin tüm döngüsünü takip edin: nefes alma, kısa bir duraklama, nefes verme ve bir sonraki nefesten önceki duraklama."
+          },
+          {
+            "step": 5,
+            "instruction": "Zihniniz dağıldığında",
+            "detail": "Zihniniz dağıldığında (ki bu normal), bunu fark edin ve dikkatinizi nazikçe tekrar nefesinize getirin. Bunu yargılamadan yapın."
+          },
+          {
+            "step": 6,
+            "instruction": "Düzenli pratik yapın",
+            "detail": "Bu meditasyonu her gün 5-10 dakika uygulayın. Zamanla süreyi artırabilirsiniz. Düzenlilik, sonuç almak için anahtardır."
+          }
+        ],
+        "tips": [
+          "Sabah veya akşam sakin bir zamanda pratik yapmayı deneyin",
+          "Telefonunuzu sessize alın ve rahatsız edilmeyeceğiniz bir ortam yaratın",
+          "Sabit bir saatte pratik yapmak, alışkanlık oluşturmayı kolaylaştırır",
+          "Beklentisiz yaklaşın, her pratik farklı olabilir",
+          "Sabırlı olun, meditasyon becerileri zamanla gelişir"
+        ]
+      },
+      "science": {
+        "research": "Bilimsel araştırmalar, düzenli nefes farkındalığı meditasyonunun, amigdala aktivitesini (beynin korku ve stres merkezi) azalttığını ve prefrontal korteksin (karar verme ve dikkat kontrolü ile ilgili beyin bölgesi) aktivitesini artırdığını göstermektedir.",
+        "references": [
+          "Hölzel, B. K., et al. (2011). Mindfulness practice leads to increases in regional brain gray matter density. Psychiatry Research: Neuroimaging, 191(1), 36–43.",
+          "Zeidan, F., et al. (2014). Neural correlates of mindfulness meditation-related anxiety relief. Social Cognitive and Affective Neuroscience, 9(6), 751–759."
+        ]
+      },
+      "headerClass": "meditation-header-blue",
+      "difficulty": "Başlangıç",
+      "duration": "10:00"
+    },
+    {
+      "id": "vucut-taramasi",
+      "title": "Vücut Taraması Meditasyonu",
+      "description": "Bedene dönük farkındalık ve derin rahatlama için sistemik vücut taraması pratiği.",
+      "audioSrc": "meditations/vucut-taramasi.mp3",
+      "audioBase64": "data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA/+M4wAAAAAAAAAAAAEluZm8AAAAPAAAAEAAABVgANTU1NTU1Q0NDQ0NDUFBQUFBQXl5eXl5ebGxsbGxseXl5eXl5hoaGhoaGk5OTk5OTn5+fn5+frKysrKysuLi4uLi4xcXFxcXF0tLS0tLS3t7e3t7e6urq6urq9/f39/f3/v7+/v7+AAAAAAAAAAAAAAAA/+MYxAALACwAAP/AADEAAAExTFRUUUguNS4xMVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV/+MYxDsAAANIAAAAAFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+      "about": "Vücut taraması meditasyonu, bedeninizle yeniden bağlantı kurmanızı sağlayan ve gerilimi azaltan güçlü bir tekniktir. Ayak parmaklarınızdan başınıza kadar vücudunuzun her bölgesine sistemli bir şekilde dikkat yönlendirirsiniz.",
+      "benefits": [
+        "Beden farkındalığını artırma",
+        "Kas gerginliğini azaltma",
+        "Uyku kalitesini iyileştirme",
+        "Kronik ağrı yönetimi",
+        "Zihin-beden bağlantısını güçlendirme"
+      ],
+      "bgImages": [
+        "images/meditation/bg-green-1.jpg",
+        "images/meditation/bg-green-2.jpg",
+        "images/meditation/bg-green-3.jpg"
+      ],
+      "textGuide": [
+        "Sırtüstü uzanın veya rahat bir pozisyonda oturun.",
+        "Gözlerinizi kapatın ve dikkatinizi ayak parmaklarınıza yönlendirin.",
+        "Tüm hislerinizi fark edin - sıcaklık, soğukluk, karıncalanma veya hiçbir şey.",
+        "Yavaşça yukarı doğru ilerleyin - ayak bilekleri, baldırlar, dizler, kalçalar...",
+        "Her bölgede gerginlik varsa, nefes verirken o bölgenin gevşediğini hayal edin.",
+        "Tüm vücudunuzu taradıktan sonra, birkaç dakika bütün vücudunuzun farkında olun."
+      ],
+      "practiceGuide": {
+        "title": "Vücut Taraması Nasıl Uygulanır?",
+        "steps": [
+          {
+            "step": 1,
+            "instruction": "Rahat bir pozisyon alın",
+            "detail": "Tercihen sırtüstü uzanın, ancak rahat bir oturma pozisyonu da kullanabilirsiniz. Vücudunuzun desteklendiğinden emin olun."
+          },
+          {
+            "step": 2,
+            "instruction": "Birkaç derin nefes alın",
+            "detail": "Pratiğe başlamadan önce birkaç derin nefes alarak zihninizi ve bedeninizi hazırlayın."
+          },
+          {
+            "step": 3,
+            "instruction": "Dikkatinizi ayaklarınıza yönlendirin",
+            "detail": "Sol ayak parmaklarınızdan başlayın. Her parmaktaki hisleri, sıcaklığı, gerginliği veya rahatlığı fark edin."
+          },
+          {
+            "step": 4,
+            "instruction": "Sistematik olarak yukarı doğru ilerleyin",
+            "detail": "Dikkatinizi yavaşça yukarı doğru kaydırın: ayak tabanı, topuk, ayak bileği, baldır, diz, uyluk, kalça. Aynı süreci sağ bacağınız için tekrarlayın."
+          },
+          {
+            "step": 5,
+            "instruction": "Gövde, kollar ve başa geçin",
+            "detail": "Pelvis, karın, göğüs, sırt, omuzlar, kollar ve başınızın her bölgesine sırayla odaklanın. Her alandaki hisleri tarafsızca gözlemleyin."
+          },
+          {
+            "step": 6,
+            "instruction": "Vücudunuzun bütününü hissedin",
+            "detail": "Son olarak, tüm vücudunuzu bir bütün olarak hissedin. Nefes alıp verirken tüm bedeninizin nasıl hareket ettiğinin farkında olun."
+          }
+        ],
+        "tips": [
+          "Her bölgede 20-30 saniye kalın, acele etmeyin",
+          "Rahatsızlık veya ağrı hissettiğiniz bölgelere nazikçe dikkat edin, onlarla savaşmayın",
+          "Uykuya dalmaya başlarsanız, oturma pozisyonunda pratik yapmayı deneyin",
+          "Pratik sırasında dikkatiniz dağılırsa, nazikçe vücudunuza geri dönün",
+          "İlk başta 10-15 dakikalık seanslarla başlayıp, zamanla 30-45 dakikaya çıkarabilirsiniz"
+        ]
+      },
+      "science": {
+        "research": "Klinik çalışmalar, düzenli vücut taraması meditasyonunun kronik ağrı, uykusuzluk ve anksiyete gibi durumların yönetiminde etkili olduğunu göstermiştir. Bu pratik, interoceptive awareness (iç beden farkındalığı) denilen, bedenin iç sinyallerini algılama yeteneğini geliştirmektedir.",
+        "references": [
+          "Carmody, J., & Baer, R. A. (2008). Relationships between mindfulness practice and levels of mindfulness, medical and psychological symptoms and well-being in a mindfulness-based stress reduction program. Journal of Behavioral Medicine, 31(1), 23-33.",
+          "Dreeben, S. J., et al. (2013). The MBSR body scan in clinical practice. Mindfulness, 4(4), 394-401."
+        ]
+      },
+      "headerClass": "meditation-header-green",
+      "difficulty": "Orta",
+      "duration": "15:00"
+    },
+    {
+      "id": "sevgi-sefkat",
+      "title": "Sevgi ve Şefkat Meditasyonu",
+      "description": "Kendinize ve başkalarına karşı şefkat ve sevgi duygunuzu geliştiren meditasyon.",
+      "audioSrc": "meditations/sevgi-sefkat.mp3",
+      "audioBase64": "data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA/+M4wAAAAAAAAAAAAEluZm8AAAAPAAAAEAAABVgANTU1NTU1Q0NDQ0NDUFBQUFBQXl5eXl5ebGxsbGxseXl5eXl5hoaGhoaGk5OTk5OTn5+fn5+frKysrKysuLi4uLi4xcXFxcXF0tLS0tLS3t7e3t7e6urq6urq9/f39/f3/v7+/v7+AAAAAAAAAAAAAAAA/+MYxAALACwAAP/AADEAAAExTFRUUUguNS4xMVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV/+MYxDsAAANIAAAAAFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+      "about": "Sevgi ve şefkat meditasyonu (Metta), önce kendinize sonra sevdiklerinize, tarafsız kişilere, zorlandığınız kişilere ve sonunda tüm canlılara iyilik ve mutluluk dilemeyi içeren güçlü bir pratiktir.",
+      "benefits": [
+        "Empati ve anlayışı geliştirme",
+        "Öz-eleştiriyi azaltma",
+        "İlişkileri güçlendirme",
+        "Pozitif duygular oluşturma",
+        "Sosyal bağlantıları iyileştirme"
+      ],
+      "bgImages": [
+        "images/meditation/bg-purple-1.jpg",
+        "images/meditation/bg-purple-2.jpg",
+        "images/meditation/bg-purple-3.jpg"
+      ],
+      "textGuide": [
+        "Rahat bir pozisyonda oturun ve gözlerinizi kapatın.",
+        "Kendinize şu cümleleri tekrarlayın: \"Mutlu olayım. Sağlıklı olayım. Güvende olayım. Huzur içinde yaşayayım.\"",
+        "Sevdiğiniz birini düşünün ve aynı cümleleri onun için tekrarlayın.",
+        "Tarafsız olduğunuz birini düşünün ve aynı cümleleri onun için tekrarlayın.",
+        "Zorlandığınız birini düşünün ve aynı cümleleri onun için tekrarlayın.",
+        "Son olarak, tüm canlılar için bu dilekleri genişletin."
+      ],
+      "practiceGuide": {
+        "title": "Sevgi ve Şefkat Meditasyonu Nasıl Uygulanır?",
+        "steps": [
+          {
+            "step": 1,
+            "instruction": "Kendinizle başlayın",
+            "detail": "Rahat bir pozisyonda oturun ve kalbinize bir sıcaklık ve şefkat duygusu getirin. Kendinize şu cümleleri tekrarlayın: 'Mutlu olayım. Sağlıklı olayım. Güvende olayım. Huzur içinde yaşayayım.'"
+          },
+          {
+            "step": 2,
+            "instruction": "Sevdiğiniz birine odaklanın",
+            "detail": "Sevdiğiniz bir kişiyi (aile üyesi, arkadaş, evcil hayvan) hayal edin ve ona iyi dileklerinizi gönderin: 'Mutlu olasın. Sağlıklı olasın. Güvende olasın. Huzur içinde yaşayasın.'"
+          },
+          {
+            "step": 3,
+            "instruction": "Tarafsız bir kişiye geçin",
+            "detail": "Hayatınızda nötr bir yer tutan birini (örneğin, marketteki kasiyer, otobüs şoförü) düşünün ve aynı iyi dilekleri ona yönlendirin."
+          },
+          {
+            "step": 4,
+            "instruction": "Zor bir kişiye odaklanın",
+            "detail": "İlişkinizde zorluk yaşadığınız birini düşünün (çok zorlu bir kişi olmasa da olur). Ona da aynı dilekleri gönderin. Bu zor gelebilir ama dönüştürücüdür."
+          },
+          {
+            "step": 5,
+            "instruction": "Tüm varlıklara genişletin",
+            "detail": "Son olarak, tüm insanları, hayvanları ve canlıları düşünün. 'Tüm varlıklar mutlu olsun. Tüm varlıklar acıdan uzak olsun.'"
+          },
+          {
+            "step": 6,
+            "instruction": "Pratiği tamamlayın",
+            "detail": "Bu sevgi ve şefkat enerjisinin içinizde ve etrafınızda yayıldığını hissedin. Birkaç derin nefes alın ve pratiği sonlandırın."
+          }
+        ],
+        "tips": [
+          "Bu meditasyon sırasında duygusal hisler yükselebilir, onlara izin verin",
+          "Sözleri ezbere söylemek yerine, anlamlarını hissetmeye çalışın",
+          "Bazı kişilere sevgi göndermek zor olabilir, bu normal - sabırlı olun",
+          "Her aşamada birkaç dakika kalın",
+          "Günlük yaşamda da bu dilek cümlelerini kullanmayı deneyin"
+        ]
+      },
+      "science": {
+        "research": "Sevgi-şefkat meditasyonu (Metta) üzerine yapılan araştırmalar, bu pratiğin pozitif duyguları artırdığını, empati ve sosyal bağlantıyı güçlendirdiğini ve depresyon belirtilerini azalttığını göstermektedir. Nörobiyolojik açıdan, bu meditasyon türü beynin sosyal bağlantı ve duygusal düzenleme ile ilgili bölgelerini aktive etmektedir.",
+        "references": [
+          "Hutcherson, C. A., Seppala, E. M., & Gross, J. J. (2008). Loving-kindness meditation increases social connectedness. Emotion, 8(5), 720-724.",
+          "Fredrickson, B. L., Cohn, M. A., Coffey, K. A., Pek, J., & Finkel, S. M. (2008). Open hearts build lives: positive emotions, induced through loving-kindness meditation, build consequential personal resources. Journal of Personality and Social Psychology, 95(5), 1045-1062."
+        ]
+      },
+      "headerClass": "meditation-header-purple",
+      "difficulty": "Orta",
+      "duration": "12:00"
+    },
+    {
+      "id": "dusunce-takibi",
+      "title": "Düşünce Takibi Meditasyonu",
+      "description": "Düşünceleri yargılamadan gözlemlemeyi öğrenerek zihinsel özgürlük kazanın.",
+      "audioSrc": "meditations/dusunce-takibi.mp3",
+      "audioBase64": "data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA/+M4wAAAAAAAAAAAAEluZm8AAAAPAAAAEAAABVgANTU1NTU1Q0NDQ0NDUFBQUFBQXl5eXl5ebGxsbGxseXl5eXl5hoaGhoaGk5OTk5OTn5+fn5+frKysrKysuLi4uLi4xcXFxcXF0tLS0tLS3t7e3t7e6urq6urq9/f39/f3/v7+/v7+AAAAAAAAAAAAAAAA/+MYxAALACwAAP/AADEAAAExTFRUUUguNS4xMVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV/+MYxDsAAANIAAAAAFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+      "about": "Düşünce takibi meditasyonu, düşüncelerinizi bir nehirdeki yapraklar gibi akıp gittiğini gözlemlemeyi öğretir. Bu pratik, düşüncelerinize kapılmadan onları tarafsızca fark etmenizi sağlar.",
+      "benefits": [
+        "Obsesif düşünceleri azaltma",
+        "Duygusal tepkileri dengeleme",
+        "Öz-farkındalığı artırma",
+        "Zihinsel esneklik kazandırma",
+        "Bilişsel fonksiyonları geliştirme"
+      ],
+      "bgImages": [
+        "images/meditation/bg-orange-1.jpg",
+        "images/meditation/bg-orange-2.jpg",
+        "images/meditation/bg-orange-3.jpg"
+      ],
+      "textGuide": [
+        "Rahat bir pozisyonda oturun ve gözlerinizi kapatın.",
+        "Zihninizi bir gökyüzü, düşüncelerinizi ise geçen bulutlar olarak hayal edin.",
+        "Bir düşünce geldiğinde, onu fark edin ama peşinden gitmeyin.",
+        "Düşünceyi bir bulut olarak görselleştirin ve gökyüzünde süzülerek gittiğini izleyin.",
+        "Kendinizi bir düşünceye kapılmış bulursanız, nazikçe dikkatinizi tekrar gökyüzüne getirin.",
+        "Düşünceleri yargılamadan, sadece gözlemleyin ve geçmelerine izin verin."
+      ],
+      "practiceGuide": {
+        "title": "Düşünce Takibi Meditasyonu Nasıl Uygulanır?",
+        "steps": [
+          {
+            "step": 1,
+            "instruction": "Sakin bir ortam yaratın",
+            "detail": "Dikkatinizi dağıtacak şeyleri en aza indirin. Rahatsız edilmeyeceğiniz ve sessiz bir ortam seçin."
+          },
+          {
+            "step": 2,
+            "instruction": "Rahat bir oturma pozisyonu alın",
+            "detail": "Sırtınız dik ancak rahat olacak şekilde oturun. Ellerinizi dizlerinize veya kucağınıza koyun."
+          },
+          {
+            "step": 3,
+            "instruction": "Önce nefesinize odaklanın",
+            "detail": "Zihninizdeki hareketliliği yatıştırmak için birkaç dakika sadece nefesinize odaklanın. Bu, zihin için bir çapa görevi görecektir."
+          },
+          {
+            "step": 4,
+            "instruction": "Düşüncelerinizi gözlemlemeye başlayın",
+            "detail": "Zihninize gelen düşünceleri fark edin. Bunları nehirdeki yapraklar, gökyüzündeki bulutlar veya ekranda geçen film kareleri olarak hayal edebilirsiniz."
+          },
+          {
+            "step": 5,
+            "instruction": "Düşünceleri etiketleyin (opsiyonel)",
+            "detail": "İsterseniz, düşünceleri 'planlama', 'hatırlama', 'endişelenme' gibi kategorilerle etiketleyebilirsiniz. Bu, onlardan bir adım uzaklaşmanıza yardımcı olur."
+          },
+          {
+            "step": 6,
+            "instruction": "Yargılamadan gözlemleyin",
+            "detail": "Düşüncelerinizi 'iyi' veya 'kötü' olarak değerlendirmeden, sadece varlıklarını kabul edin ve geçip gitmelerine izin verin."
+          }
+        ],
+        "tips": [
+          "Bir düşünceye kapıldığınızı fark ettiğinizde kendinizi eleştirmeyin, bu meditasyonun doğal bir parçasıdır",
+          "Başlangıçta 5-10 dakika ile başlayın, zamanla süreyi artırın",
+          "Gün içinde de kısa düşünce takibi anları yaratabilirsiniz",
+          "Zihin çok hareketli olduğunda nefesinize geri dönün",
+          "Bu pratiğin etkisi zamanla birikimli olarak artar, sabırlı olun"
+        ]
+      },
+      "science": {
+        "research": "Düşünce takibi meditasyonu, bilişsel ayrışma (cognitive defusion) tekniklerinin bir parçasıdır. Bu teknik, obsesif düşünceler ve ruminasyon gibi durumların tedavisinde etkili olduğu kanıtlanmıştır. fMRI çalışmaları, bu pratiğin, beyindeki default mode network (varsayılan mod ağı) aktivitesini azalttığını göstermektedir, bu ağ genellikle zihin gezintisi ve otobiyografik düşüncelerle ilişkilidir.",
+        "references": [
+          "Brewer, J. A., et al. (2011). Meditation experience is associated with differences in default mode network activity and connectivity. Proceedings of the National Academy of Sciences, 108(50), 20254-20259.",
+          "Lutz, J., et al. (2016). Mindfulness and emotion regulation—an fMRI study. Social Cognitive and Affective Neuroscience, 11(2), 213-222."
+        ]
+      },
+      "headerClass": "meditation-header-orange",
+      "difficulty": "İleri",
+      "duration": "18:00"
+    },
+    {
+      "id": "uyku-oncesi",
+      "title": "Uyku Öncesi Rahatlama Meditasyonu",
+      "description": "Zihni sakinleştirerek kaliteli ve huzurlu bir uykuya geçiş yapın.",
+      "audioSrc": "meditations/uyku-oncesi.mp3",
+      "audioBase64": "data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA/+M4wAAAAAAAAAAAAEluZm8AAAAPAAAAEAAABVgANTU1NTU1Q0NDQ0NDUFBQUFBQXl5eXl5ebGxsbGxseXl5eXl5hoaGhoaGk5OTk5OTn5+fn5+frKysrKysuLi4uLi4xcXFxcXF0tLS0tLS3t7e3t7e6urq6urq9/f39/f3/v7+/v7+AAAAAAAAAAAAAAAA/+MYxAALACwAAP/AADEAAAExTFRUUUguNS4xMVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV/+MYxDsAAANIAAAAAFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+      "about": "Uyku öncesi rahatlama meditasyonu, uykuya dalmadan önce bedeninizi ve zihninizi rahatlatmak için tasarlanmış bir tekniktir. Düzenli uygulandığında uyku kalitesini önemli ölçüde artırabilir.",
+      "benefits": [
+        "Uykuya dalma süresini kısaltma",
+        "Uyku kalitesini artırma",
+        "Gece uyanmalarını azaltma",
+        "Zihinsel gerilimi hafifletme",
+        "Sabah daha dinlenmiş uyanma"
+      ],
+      "bgImages": [
+        "images/meditation/bg-indigo-1.jpg",
+        "images/meditation/bg-indigo-2.jpg",
+        "images/meditation/bg-indigo-3.jpg"
+      ],
+      "textGuide": [
+        "Yatak odanızda loş bir ışık ayarlayın ve rahat bir pozisyonda uzanın.",
+        "Derin bir nefes alın ve yavaşça verin, bedeninizin ağırlığını hissedin.",
+        "Ayak parmaklarınızdan başlayarak, her nefeste vücudunuzun bir bölümünü gevşetin.",
+        "Tüm kaslarınızın gevşediğini ve yatağa doğru çöktüğünü hissedin.",
+        "Zihninizi, hafif bir sis bulutunun yavaşça etrafınızı sardığını hayal edin.",
+        "Nefes alıp verdikçe bu sisin sizi yumuşak ve huzurlu bir uykuya taşıdığını düşünün."
+      ],
+      "practiceGuide": {
+        "title": "Uyku Öncesi Rahatlama Meditasyonu Nasıl Uygulanır?",
+        "steps": [
+          {
+            "step": 1,
+            "instruction": "Uyku için ortamınızı hazırlayın",
+            "detail": "Yatak odanızı uyku için ideal hale getirin: loş ışık, rahat sıcaklık (18-20°C), elektronik cihazları kapatın veya uzaklaştırın. Rahat pijamalarınızı giyin."
+          },
+          {
+            "step": 2,
+            "instruction": "Yatakta rahat bir pozisyon alın",
+            "detail": "Sırt üstü veya yan pozisyonda, vücudunuzun desteklendiğinden emin olun. Kendinizi en rahat hissettiğiniz pozisyonu seçin."
+          },
+          {
+            "step": 3,
+            "instruction": "Derin nefeslerle başlayın",
+            "detail": "4 sayarak nefes alın, 4 sayarak tutun ve 6 sayarak verin. Bu ritmi birkaç kez tekrarlayın. Her nefes verişte bedeninizin biraz daha ağırlaştığını ve yatağa çöktüğünü hayal edin."
+          },
+          {
+            "step": 4,
+            "instruction": "Progresif kas gevşetme uygulayın",
+            "detail": "Ayak parmaklarınızdan başlayarak, vücudunuzun her bölgesini sırayla gevşetin. Her bölgeyi önce biraz kasın, sonra tamamen gevşetin. Ayak parmaklarından başlayıp başınıza doğru ilerleyin."
+          },
+          {
+            "step": 5,
+            "instruction": "Zihninizi sakinleştirin",
+            "detail": "Günün düşüncelerini bir kenara bırakın. Zihninize huzurlu bir görüntü getirin: sessiz bir sahil, sakin bir orman veya sevdiğiniz güvenli bir yer."
+          },
+          {
+            "step": 6,
+            "instruction": "Uyku niyetini belirleyin",
+            "detail": "\"Şimdi huzurlu ve dinlendirici bir uykuya dalacağım\" gibi olumlu bir niyet belirleyin. Vücudunuzun doğal uyku sürecine güvenin."
+          }
+        ],
+        "tips": [
+          "Yatmadan en az 1 saat önce ekranlara bakmayı bırakın",
+          "Akşam geç saatlerde kafein ve alkol tüketiminden kaçının",
+          "Her gece aynı saatte yatmaya çalışın",
+          "Uyuyamadığınızı hissederseniz, endişelenmeyin - uykuyu zorlamak yerine rahatlamaya odaklanın",
+          "Uyku ritueli oluşturun: ılık duş, bitki çayı, kitap okuma gibi"
+        ]
+      },
+      "science": {
+        "research": "Uyku öncesi rahatlama meditasyonu, parasempatik sinir sistemini aktive ederek 'savaş veya kaç' tepkisini azaltır ve 'dinlen ve sindir' modunu tetikler. Araştırmalar, düzenli uyku meditasyonu pratiğinin, insomnia semptomlarını azalttığını, toplam uyku süresini artırdığını ve uyku kalitesini iyileştirdiğini göstermektedir.",
+        "references": [
+          "Black, D. S., et al. (2015). Mindfulness meditation and improvement in sleep quality and daytime impairment among older adults with sleep disturbances: a randomized clinical trial. JAMA Internal Medicine, 175(4), 494-501.",
+          "Ong, J. C., et al. (2014). A randomized controlled trial of mindfulness meditation for chronic insomnia. Sleep, 37(9), 1553-1563."
+        ]
+      },
+      "headerClass": "meditation-header-indigo",
+      "difficulty": "Başlangıç",
+      "duration": "20:00"
+    }
+  ]
+}

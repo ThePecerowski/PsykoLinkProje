@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+    <title>Tour Test Reset</title>
+</head>
+<body>
+    <h1>Tour Test Reset</h1>
+    <button onclick="resetTour()">Reset Tour</button>
+    <button onclick="checkTour()">Check Tour Status</button>
+    <div id="status"></div>
+    
+    <script>
+        function resetTour() {
+            localStorage.removeItem('bilisselTerapiTourCompleted');
+            localStorage.removeItem('tourCompleted');
+            document.getElementById('status').innerHTML = 'Tour reset edildi!';
+        }
+        
+        function checkTour() {
+            const oldKey = localStorage.getItem('tourCompleted');
+            const newKey = localStorage.getItem('bilisselTerapiTourCompleted');
+            document.getElementById('status').innerHTML = `
+                <p>Eski anahtar (tourCompleted): ${oldKey}</p>
+                <p>Yeni anahtar (bilisselTerapiTourCompleted): ${newKey}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

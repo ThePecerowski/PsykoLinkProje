@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PsykoLink'in nefes egzersizleri sayfası. Anksiyete ve panik atak için etkili nefes egzersizleri ile rahatlamayı deneyimleyin.">
+    <meta name="keywords" content="nefes egzersizleri, anksiyete, panik atak, gevşeme teknikleri, bilişsel terapi, PsykoLink">
+    <meta name="author" content="PsykoLink">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.psykolink.com/nefes-egzersizi.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.psykolink.com/nefes-egzersizi.html">
+    <meta property="og:title" content="Nefes Egzersizleri - PsykoLink">
+    <meta property="og:description" content="Anksiyete ve panik atak için bilimsel temelli nefes egzersizleri. İnteraktif nefes rehberi ile rahatlamayı deneyimleyin.">
+    <meta property="og:image" content="https://www.psykolink.com/images/nefes-egzersizi-og.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.psykolink.com/nefes-egzersizi.html">
+    <meta property="twitter:title" content="Nefes Egzersizleri - PsykoLink">
+    <meta property="twitter:description" content="Anksiyete ve panik atak için bilimsel temelli nefes egzersizleri. İnteraktif nefes rehberi ile rahatlamayı deneyimleyin.">
+    <meta property="twitter:image" content="https://www.psykolink.com/images/nefes-egzersizi-og.jpg">
+      <title>Nefes Egzersizleri - PsykoLink</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/disclaimer.css">
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    
+    <!-- Custom CSS for Breathing Exercise -->
+    <style>
+        .breathing-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+            padding: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 4rem 0;
+        }
+        
+        .breathing-title {
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        .exercise-details {
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 800px;
+        }
+        
+        .breathing-circle {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4a90e2, #50c9c3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(74, 144, 226, 0.3);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            margin: 2rem 0;
+        }
+        
+        .breathing-circle.inhale {
+            animation: inhale var(--inhale-duration) ease-in;
+        }
+        
+        .breathing-circle.hold {
+            animation: hold var(--hold-duration) ease-in;
+        }
+        
+        .breathing-circle.exhale {
+            animation: exhale var(--exhale-duration) ease-in;
+        }
+        
+        .breathing-circle.rest {
+            animation: rest var(--rest-duration) ease-in;
+        }
+        
+        @keyframes inhale {
+            from {
+                transform: scale(1);
+                box-shadow: 0 10px 20px rgba(74, 144, 226, 0.3);
+            }
+            to {
+                transform: scale(1.3);
+                box-shadow: 0 15px 30px rgba(74, 144, 226, 0.5);
+            }
+        }
+        
+        @keyframes hold {
+            from {
+                transform: scale(1.3);
+                box-shadow: 0 15px 30px rgba(74, 144, 226, 0.5);
+            }
+            to {
+                transform: scale(1.3);
+                box-shadow: 0 15px 30px rgba(74, 144, 226, 0.5);
+            }
+        }
+        
+        @keyframes exhale {
+            from {
+                transform: scale(1.3);
+                box-shadow: 0 15px 30px rgba(74, 144, 226, 0.5);
+            }
+            to {
+                transform: scale(1);
+                box-shadow: 0 10px 20px rgba(74, 144, 226, 0.3);
+            }
+        }
+        
+        @keyframes rest {
+            from {
+                transform: scale(1);
+                box-shadow: 0 10px 20px rgba(74, 144, 226, 0.3);
+            }
+            to {
+                transform: scale(1);
+                box-shadow: 0 10px 20px rgba(74, 144, 226, 0.3);
+            }
+        }
+        
+        .breathing-text {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cycle-counter {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .control-btn {
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+        
+        .progress-container {
+            width: 100%;
+            max-width: 500px;
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #4a90e2, #50c9c3);
+            border-radius: 5px;
+            transition: width 0.1s linear;
+        }
+        
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 1rem;
+        }
+        
+        .step {
+            text-align: center;
+            color: #6c757d;
+            font-weight: 500;
+        }
+        
+        .step.active {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .voice-guide {
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .voice-guide label {
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .breathing-circle {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .cycle-counter {
+                top: -30px;
+                right: -30px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .breathing-circle {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .breathing-text {
+                font-size: 1.4rem;
+            }
+            
+            .control-btn {
+                padding: 0.6rem 1.5rem;
+                min-width: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-brain"></i> PsykoLink</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#services">Hizmetlerimiz</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">İletişim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="BilisselTerapi.html">Bilişsel Terapi</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="therapy-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1>Nefes Egzersizleri</h1>
+                    <p class="lead">Rehberli nefes egzersizleri ile rahatlamayı deneyimleyin</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="breathing-container">
+                <h2 class="breathing-title" id="exercise-title">Nefes Egzersizi</h2>
+                <p class="exercise-details" id="exercise-description">Aşağıdaki animasyonu takip ederek nefes egzersizini uygulayabilirsiniz. Başla butonuna tıklayarak egzersize başlayın.</p>
+                
+                <div class="breathing-circle" id="breathing-circle">
+                    <div class="breathing-text" id="breathing-text">Hazır</div>
+                    <div class="cycle-counter" id="cycle-counter">0</div>
+                </div>
+                
+                <div class="step-indicator">
+                    <div class="step" id="step-inhale">Nefes Al</div>
+                    <div class="step" id="step-hold">Tut</div>
+                    <div class="step" id="step-exhale">Nefes Ver</div>
+                    <div class="step" id="step-rest">Dinlen</div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                
+                <div class="voice-guide">
+                    <input type="checkbox" id="voice-guide-toggle" class="form-check-input" checked>
+                    <label for="voice-guide-toggle" class="form-check-label">Sesli rehberlik</label>
+                </div>
+                
+                <div class="controls">
+                    <button class="btn btn-primary control-btn" id="start-btn">Başla</button>
+                    <button class="btn btn-secondary control-btn" id="pause-btn" disabled>Duraklat</button>
+                    <button class="btn btn-danger control-btn" id="stop-btn" disabled>Durdur</button>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Nefes Egzersizleri Hakkında</h3>
+                            <p>Düzenli nefes egzersizleri, stres ve anksiyeteyi azaltmanın yanı sıra genel sağlığınıza da katkıda bulunur. Bu egzersizler:</p>
+                            <ul>
+                                <li>Kan basıncını düşürmeye yardımcı olur</li>
+                                <li>Stresi ve anksiyete azaltır</li>
+                                <li>Uyku kalitesini artırır</li>
+                                <li>Odaklanmayı geliştirir</li>
+                                <li>Sinir sistemini dengeler</li>
+                            </ul>
+                            <p>Günlük rutininize 5-10 dakikalık nefes egzersizleri ekleyerek bu faydalardan yararlanabilirsiniz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-lg-8 mx-auto">
+                    <div class="alert alert-info">
+                        <h4><i class="fas fa-info-circle"></i> Bilgilendirme</h4>
+                        <p>Bu egzersizler, psikolojik rahatsızlıklar için profesyonel tedavinin yerini tutmaz. Ciddi anksiyete veya panik atak semptomları yaşıyorsanız, lütfen bir sağlık uzmanına başvurun.</p>
+                        <a href="index.html#appointment" class="btn btn-outline-primary mt-2">Uzman Desteği Alın</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                   <a href="index.html"><h3><i class="fas fa-brain"></i> PsykoLink</h3></a>
+                    <p>Herkes için erişilebilir psikolojik destek</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Hızlı Bağlantılar</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#services">Hizmetlerimiz</a></li>
+                        <li><a href="index.html#appointment">Randevu Al</a></li>
+                        <li><a href="index.html#join">Ekibe Katıl</a></li>
+                        <li><a href="index.html#donate">Bağış Yap</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Bizi Takip Edin</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PsykoLink. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script src="assets/js/disclaimer.js"></script>
+    <script src="assets/js/exercises-tracker.js"></script>
+    
+    <!-- Breathing Exercise Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const exerciseId = urlParams.get('id') || '4-7-8'; // Default to 4-7-8 if no ID is provided
+            
+            // Elements
+            const breathingCircle = document.getElementById('breathing-circle');
+            const breathingText = document.getElementById('breathing-text');
+            const cycleCounter = document.getElementById('cycle-counter');
+            const progressBar = document.getElementById('progress-bar');
+            const startBtn = document.getElementById('start-btn');
+            const pauseBtn = document.getElementById('pause-btn');
+            const stopBtn = document.getElementById('stop-btn');
+            const exerciseTitle = document.getElementById('exercise-title');
+            const exerciseDescription = document.getElementById('exercise-description');
+            const voiceGuideToggle = document.getElementById('voice-guide-toggle');
+            
+            // Step indicators
+            const stepInhale = document.getElementById('step-inhale');
+            const stepHold = document.getElementById('step-hold');
+            const stepExhale = document.getElementById('step-exhale');
+            const stepRest = document.getElementById('step-rest');
+            
+            // State variables
+            let currentState = 'ready'; // ready, inhale, hold, exhale, rest, paused, finished
+            let previousState = '';
+            let currentCycle = 0;
+            let animationTimer = null;
+            let elapsedTime = 0;
+            let totalDuration = 0;
+            let isVoiceGuideEnabled = true;
+            
+            // Default exercise configuration
+            let exerciseConfig = {
+                baslik: 'Nefes Egzersizi',
+                aciklama: 'Bu egzersiz, anksiyete ve stres seviyenizi düşürmeye yardımcı olur.',
+                inhaleDuration: 4,
+                holdDuration: 7,
+                exhaleDuration: 8,
+                restDuration: 2,
+                cycles: 4,
+                voiceGuide: {
+                    inhale: 'Derin nefes al',
+                    hold: 'Nefesini tut',
+                    exhale: 'Yavaşça nefes ver',
+                    rest: 'Dinlen'
+                }
+            };
+            
+            // Fetch exercise data from data.json
+            fetch('data.json')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.nefesEgzersizleri) {
+                        const exercise = data.nefesEgzersizleri.find(ex => ex.id === exerciseId);
+                        if (exercise) {
+                            exerciseConfig = exercise;
+                            updateUIWithExerciseDetails();
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading exercise data:', error);
+                });
+            
+            // Initialize UI
+            function updateUIWithExerciseDetails() {
+                exerciseTitle.textContent = exerciseConfig.baslik;
+                exerciseDescription.textContent = exerciseConfig.aciklama;
+                cycleCounter.textContent = `0/${exerciseConfig.cycles}`;
+                
+                // Update CSS variables for animation durations
+                document.documentElement.style.setProperty('--inhale-duration', `${exerciseConfig.inhaleDuration}s`);
+                document.documentElement.style.setProperty('--hold-duration', `${exerciseConfig.holdDuration}s`);
+                document.documentElement.style.setProperty('--exhale-duration', `${exerciseConfig.exhaleDuration}s`);
+                document.documentElement.style.setProperty('--rest-duration', `${exerciseConfig.restDuration}s`);
+                
+                // Calculate total duration
+                calculateTotalDuration();
+            }
+            
+            // Initialize UI with default values
+            updateUIWithExerciseDetails();
+            
+            // Event listeners
+            startBtn.addEventListener('click', startExercise);
+            pauseBtn.addEventListener('click', pauseExercise);
+            stopBtn.addEventListener('click', stopExercise);
+            voiceGuideToggle.addEventListener('change', function() {
+                isVoiceGuideEnabled = this.checked;
+            });
+            
+            // Calculate total duration of the exercise
+            function calculateTotalDuration() {
+                totalDuration = (exerciseConfig.inhaleDuration + 
+                                exerciseConfig.holdDuration + 
+                                exerciseConfig.exhaleDuration + 
+                                exerciseConfig.restDuration) * exerciseConfig.cycles;
+            }
+            
+            function startExercise() {
+                if (currentState === 'ready' || currentState === 'finished') {
+                    // Reset
+                    currentCycle = 0;
+                    elapsedTime = 0;
+                    progressBar.style.width = '0%';
+                    
+                    // Update UI
+                    cycleCounter.textContent = `0/${exerciseConfig.cycles}`;
+                    startBtn.disabled = true;
+                    pauseBtn.disabled = false;
+                    stopBtn.disabled = false;
+                    
+                    // Start first cycle
+                    startCycle();
+                } else if (currentState === 'paused') {
+                    // Resume
+                    startBtn.disabled = true;
+                    pauseBtn.disabled = false;
+                    
+                    // Continue from where we left off
+                    continueFromCurrentState();
+                }
+            }
+            
+            function pauseExercise() {
+                if (currentState !== 'paused' && currentState !== 'ready' && currentState !== 'finished') {
+                    previousState = currentState;
+                    currentState = 'paused';
+                    clearAnimations();
+                    
+                    // Update UI
+                    startBtn.disabled = false;
+                    pauseBtn.disabled = true;
+                    breathingText.textContent = 'Duraklatıldı';
+                }
+            }
+            
+            function stopExercise() {
+                clearAnimations();
+                currentState = 'ready';
+                
+                // Reset UI
+                breathingCircle.className = 'breathing-circle';
+                breathingText.textContent = 'Hazır';
+                cycleCounter.textContent = `0/${exerciseConfig.cycles}`;
+                progressBar.style.width = '0%';
+                startBtn.disabled = false;
+                pauseBtn.disabled = true;
+                stopBtn.disabled = true;
+                
+                // Reset step indicators
+                resetStepIndicators();
+            }
+            
+            function startCycle() {
+                currentCycle++;
+                cycleCounter.textContent = `${currentCycle}/${exerciseConfig.cycles}`;
+                
+                // Start with inhale
+                startInhale();
+            }
+            
+            function startInhale() {
+                currentState = 'inhale';
+                updateStepIndicators('inhale');
+                
+                // Update breathing circle
+                clearAnimations();
+                breathingCircle.className = 'breathing-circle inhale';
+                breathingText.textContent = 'Nefes Al';
+                
+                // Speak instruction
+                if (isVoiceGuideEnabled) {
+                    speakText(exerciseConfig.voiceGuide.inhale);
+                }
+                
+                // Set timer for next phase
+                animationTimer = setTimeout(() => {
+                    startHold();
+                }, exerciseConfig.inhaleDuration * 1000);
+                
+                // Update progress
+                updateProgress(exerciseConfig.inhaleDuration);
+            }
+            
+            function startHold() {
+                currentState = 'hold';
+                updateStepIndicators('hold');
+                
+                // Update breathing circle
+                clearAnimations();
+                breathingCircle.className = 'breathing-circle hold';
+                breathingText.textContent = 'Tut';
+                
+                // Speak instruction
+                if (isVoiceGuideEnabled) {
+                    speakText(exerciseConfig.voiceGuide.hold);
+                }
+                
+                // Set timer for next phase
+                animationTimer = setTimeout(() => {
+                    startExhale();
+                }, exerciseConfig.holdDuration * 1000);
+                
+                // Update progress
+                updateProgress(exerciseConfig.holdDuration);
+            }
+            
+            function startExhale() {
+                currentState = 'exhale';
+                updateStepIndicators('exhale');
+                
+                // Update breathing circle
+                clearAnimations();
+                breathingCircle.className = 'breathing-circle exhale';
+                breathingText.textContent = 'Nefes Ver';
+                
+                // Speak instruction
+                if (isVoiceGuideEnabled) {
+                    speakText(exerciseConfig.voiceGuide.exhale);
+                }
+                
+                // Set timer for next phase
+                animationTimer = setTimeout(() => {
+                    startRest();
+                }, exerciseConfig.exhaleDuration * 1000);
+                
+                // Update progress
+                updateProgress(exerciseConfig.exhaleDuration);
+            }
+            
+            function startRest() {
+                currentState = 'rest';
+                updateStepIndicators('rest');
+                
+                // Update breathing circle
+                clearAnimations();
+                breathingCircle.className = 'breathing-circle rest';
+                breathingText.textContent = 'Dinlen';
+                
+                // Speak instruction
+                if (isVoiceGuideEnabled) {
+                    speakText(exerciseConfig.voiceGuide.rest);
+                }
+                
+                // Set timer for next cycle or finish
+                animationTimer = setTimeout(() => {
+                    if (currentCycle < exerciseConfig.cycles) {
+                        startCycle();
+                    } else {
+                        finishExercise();
+                    }
+                }, exerciseConfig.restDuration * 1000);
+                
+                // Update progress
+                updateProgress(exerciseConfig.restDuration);
+            }
+            
+            function finishExercise() {
+                currentState = 'finished';
+                
+                // Update UI
+                clearAnimations();
+                breathingCircle.className = 'breathing-circle';
+                breathingText.textContent = 'Tamamlandı';
+                startBtn.disabled = false;
+                pauseBtn.disabled = true;
+                stopBtn.disabled = true;
+                
+                // Reset step indicators
+                resetStepIndicators();
+                
+                // Speak congratulations
+                if (isVoiceGuideEnabled) {
+                    speakText('Egzersiz tamamlandı. Tebrikler!');
+                }
+            }
+            
+            function continueFromCurrentState() {
+                // Continue from the current state
+                switch (currentState) {
+                    case 'paused':
+                        if (previousState === 'inhale') {
+                            startInhale();
+                        } else if (previousState === 'hold') {
+                            startHold();
+                        } else if (previousState === 'exhale') {
+                            startExhale();
+                        } else if (previousState === 'rest') {
+                            startRest();
+                        }
+                        break;
+                }
+            }
+            
+            function clearAnimations() {
+                clearTimeout(animationTimer);
+                breathingCircle.style.animation = 'none';
+                
+                // Trigger reflow to restart animations
+                void breathingCircle.offsetWidth;
+                breathingCircle.style.animation = '';
+            }
+            
+            function updateProgress(duration) {
+                const intervalTime = 100; // Update every 100ms for smoother progress
+                const steps = duration * 10; // For 100ms intervals
+                let step = 0;
+                
+                const progressInterval = setInterval(() => {
+                    if (currentState === 'paused') {
+                        clearInterval(progressInterval);
+                        return;
+                    }
+                    
+                    step++;
+                    elapsedTime += intervalTime / 1000;
+                    const progress = (elapsedTime / totalDuration) * 100;
+                    progressBar.style.width = `${progress}%`;
+                    
+                    if (step >= steps) {
+                        clearInterval(progressInterval);
+                    }
+                }, intervalTime);
+            }
+            
+            function updateStepIndicators(currentStep) {
+                resetStepIndicators();
+                
+                switch (currentStep) {
+                    case 'inhale':
+                        stepInhale.classList.add('active');
+                        break;
+                    case 'hold':
+                        stepHold.classList.add('active');
+                        break;
+                    case 'exhale':
+                        stepExhale.classList.add('active');
+                        break;
+                    case 'rest':
+                        stepRest.classList.add('active');
+                        break;
+                }
+            }
+            
+            function resetStepIndicators() {
+                stepInhale.classList.remove('active');
+                stepHold.classList.remove('active');
+                stepExhale.classList.remove('active');
+                stepRest.classList.remove('active');
+            }
+            
+            function speakText(text) {
+                if (!speechSynthesis) return;
+                
+                // Cancel any ongoing speech
+                speechSynthesis.cancel();
+                
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'tr-TR';
+                utterance.volume = 1;
+                utterance.rate = 0.9;
+                utterance.pitch = 1;
+                
+                speechSynthesis.speak(utterance);
+            }
+            
+            // Handle visibility change (tab switching)
+            document.addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'hidden' && currentState !== 'ready' && currentState !== 'finished') {
+                    // Auto-pause when switching tabs
+                    pauseExercise();
+                }            });
+        });
+    </script>
+    <!-- AOS (Animate On Scroll) JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="assets/js/aos-config.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PsykoLink'in bilişsel terapi tablolarını oluşturma, düzenleme ve dışa aktarma aracı. Düşüncelerinizi organize etmek için profesyonel tablolar.">
+    <meta name="keywords" content="bilişsel terapi, terapi tabloları, düşünce kayıt tablosu, duygu takip, davranış aktivasyon, problem çözme, PsykoLink">
+    <meta name="author" content="PsykoLink">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.psykolink.com/tablo.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.psykolink.com/tablo.html">
+    <meta property="og:title" content="Bilişsel Terapi Tabloları - PsykoLink">
+    <meta property="og:description" content="Bilişsel terapi süreciniz için profesyonel tablolar oluşturun, düzenleyin ve dışa aktarın.">
+    <meta property="og:image" content="https://www.psykolink.com/images/tablo-og.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.psykolink.com/tablo.html">
+    <meta property="twitter:title" content="Bilişsel Terapi Tabloları - PsykoLink">
+    <meta property="twitter:description" content="Bilişsel terapi süreciniz için profesyonel tablolar oluşturun, düzenleyin ve dışa aktarın.">
+    <meta property="twitter:image" content="https://www.psykolink.com/images/tablo-og.jpg">
+    
+    <title>Bilişsel Terapi Tabloları - PsykoLink</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Table editing feedback styles */
+        .table-updating {
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+            position: relative;
+        }
+        
+        .table-updating::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(0, 0, 0, 0.1);
+            border-top: 3px solid #007bff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .table-updated {
+            animation: flash-update 0.3s ease;
+        }
+        
+        @keyframes flash-update {
+            0% { background-color: rgba(40, 167, 69, 0); }
+            50% { background-color: rgba(40, 167, 69, 0.1); }
+            100% { background-color: rgba(40, 167, 69, 0); }
+        }
+        
+        /* Input validation styles */
+        input[type="number"].invalid {
+            border-color: #dc3545;
+            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+        }
+        
+        /* Table container responsive improvements */
+        .table-preview {
+            overflow-x: auto;
+            position: relative;
+            margin: 20px 0;
+            padding: 5px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Improve table inputs */
+        #editableTable input {
+            width: 100%;
+            padding: 6px 8px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        
+        #editableTable input:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+    </style>
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Bilişsel Terapi Tabloları - PsykoLink",
+        "description": "Bilişsel terapi süreciniz için profesyonel tablolar oluşturun, düzenleyin ve dışa aktarın.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "PsykoLink",
+            "logo": "https://www.psykolink.com/images/logo.png"
+        },
+        "mainEntity": {
+            "@type": "SoftwareApplication",
+            "name": "PsykoLink Tablo Oluşturucu",
+            "applicationCategory": "HealthApplication",
+            "operatingSystem": "Web",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "TRY"
+            }
+        }
+    }
+    </script>
+    
+    <!-- Required for PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <!-- Required for DOCX Generation -->
+    <script src="https://cdn.jsdelivr.net/npm/docx@7.3.0/build/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><i class="fas fa-brain"></i> PsykoLink</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#services">Hizmetlerimiz</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#contact">İletişim</a></li>
+                        <li class="nav-item"><a class="nav-link" href="BilisselTerapi.html">Bilişsel Terapi</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="therapy-hero small-hero">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h1 id="tableTitle">Bilişsel Terapi Tabloları</h1>
+                        <p class="lead" id="tableDescription">Düşüncelerinizi, duygularınızı ve davranışlarınızı düzenlemek için profesyonel tablolar oluşturun.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="py-5">
+            <div class="container">
+                <!-- Cookie Notice -->
+                <div class="cookie-notice">
+                    <div class="d-flex align-items-start">
+                        <i class="fas fa-cookie-bite text-primary me-3 mt-1 fa-lg"></i>
+                        <div>
+                            <h5 class="mb-2">Tablo Verileriniz Hakkında</h5>
+                            <p class="mb-0">Oluşturduğunuz tablolar tarayıcınızın çerezlerinde yerel olarak saklanır ve PsykoLink sunucularına gönderilmez. Tablolarınız yalnızca siz tarafından görüntülenebilir ve dışa aktarılabilir. Tarayıcı çerezlerinizi temizlerseniz, kaydedilmiş tablolarınız da silinecektir.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table Editor -->
+                <div class="table-editor-container">
+                    <div class="table-controls">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="tableNameInput" class="form-label">Tablo Adı</label>
+                                    <input type="text" class="form-control" id="tableNameInput" placeholder="Tablonuzun adını girin">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex justify-content-between align-items-end h-100 mb-3">
+                                    <div class="btn-group">
+                                        <button class="btn btn-sm btn-outline-secondary" id="darkModeToggle">
+                                            <i class="fas fa-moon"></i> Karanlık Mod
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger" id="clearTableBtn">
+                                            <i class="fas fa-eraser"></i> Temizle
+                                        </button>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button class="btn btn-sm btn-primary" id="saveTableBtn">
+                                            <i class="fas fa-save"></i> Kaydet
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Sütunlar</span>
+                                    <input type="number" class="form-control" id="columnCountInput" min="1" max="10" value="3">
+                                    <button class="btn btn-outline-secondary" id="addColumnBtn">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                    <button class="btn btn-outline-secondary" id="removeColumnBtn">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Satırlar</span>
+                                    <input type="number" class="form-control" id="rowCountInput" min="1" max="20" value="5">
+                                    <button class="btn btn-outline-secondary" id="addRowBtn">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                    <button class="btn btn-outline-secondary" id="removeRowBtn">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="d-grid">
+                                    <button class="btn btn-success" id="updateTableBtn">
+                                        <i class="fas fa-sync-alt"></i> Tabloyu Güncelle
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-preview" id="tableContainer">
+                        <table class="table table-bordered" id="editableTable">
+                            <thead>
+                                <tr id="headerRow">
+                                    <th><input type="text" placeholder="Başlık 1" value="Durum"></th>
+                                    <th><input type="text" placeholder="Başlık 2" value="Düşünceler"></th>
+                                    <th><input type="text" placeholder="Başlık 3" value="Duygular"></th>
+                                </tr>
+                            </thead>                            <tbody id="tableBody">
+                                <tr>
+                                    <td><input type="text" placeholder="Hücre içeriği"></td>
+                                    <td><input type="text" placeholder="Hücre içeriği"></td>
+                                    <td><input type="text" placeholder="Hücre içeriği"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" placeholder="Hücre içeriği"></td>
+                                    <td><input type="text" placeholder="Hücre içeriği"></td>
+                                    <td><input type="text" placeholder="Hücre içeriği"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" placeholder="Hücre içeriği"></td>
+                                    <td><input type="text" placeholder="Hücre içeriği"></td>
+                                    <td><input type="text" placeholder="Hücre içeriği"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" placeholder="Hücre içeriği"></td>
+                                    <td><input type="text" placeholder="Hücre içeriği"></td>
+                                    <td><input type="text" placeholder="Hücre içeriği"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" placeholder="Hücre içeriği"></td>
+                                    <td><input type="text" placeholder="Hücre içeriği"></td>
+                                    <td><input type="text" placeholder="Hücre içeriği"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="export-buttons">
+                        <div class="btn-group">
+                            <button class="btn btn-outline-primary" id="exportPdfBtn">
+                                <i class="fas fa-file-pdf"></i> PDF olarak kaydet
+                            </button>
+                            <button class="btn btn-outline-primary" id="exportDocxBtn">
+                                <i class="fas fa-file-word"></i> DOCX olarak kaydet
+                            </button>
+                            <button class="btn btn-outline-primary" id="exportJpgBtn">
+                                <i class="fas fa-file-image"></i> JPEG olarak kaydet
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saved Tables -->
+                <div class="saved-tables-container mt-5">
+                    <h3><i class="fas fa-save me-2"></i>Kaydedilmiş Tablolarım</h3>
+                    <p class="text-muted">Daha önce kaydettiğiniz tablolar burada görünecektir.</p>
+                    <div class="row" id="savedTablesContainer">
+                        <!-- Saved tables will be dynamically added here -->
+                        <div class="col-12 text-center text-muted py-4" id="noTablesMessage">
+                            <i class="fas fa-table fa-3x mb-3"></i>
+                            <p>Henüz kaydedilmiş tablonuz bulunmuyor.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table Templates -->
+                <div class="table-templates-container mt-5">
+                    <h3><i class="fas fa-th me-2"></i>Örnek Şablonlar</h3>
+                    <p class="text-muted">Bilişsel terapi tekniklerine uygun hazır şablonları kullanabilirsiniz.</p>
+                    
+                    <div class="row row-cols-1 row-cols-md-2 g-4" id="templateContainer">
+                        <!-- Template cards will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+<a href="index.html"><h3><i class="fas fa-brain"></i> PsykoLink</h3></a>
+                    <p>Herkes için erişilebilir psikolojik destek</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Hızlı Bağlantılar</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#services">Hizmetlerimiz</a></li>
+                        <li><a href="index.html#appointment">Randevu Al</a></li>
+                        <li><a href="index.html#join">Ekibe Katıl</a></li>
+                        <li><a href="index.html#donate">Bağış Yap</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Bizi Takip Edin</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PsykoLink. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>    <!-- Table Templates Data -->
+    <script>
+        // Template data for different cognitive therapy tables
+        window.tableTemplates = {
+            "dusunce-kayit": {
+                "name": "Düşünce Kayıt Tablosu",
+                "description": "Otomatik düşünceleri ve bunların etkilerini analiz etmek için kullanılır.",
+                "columns": [
+                    "Durum/Olay",
+                    "Otomatik Düşünce",
+                    "Duygular",
+                    "Bilişsel Çarpıtma",
+                    "Alternatif Düşünce"
+                ],
+                "rows": 5,
+                "example": [
+                    ["Toplantıda sunum yaparken takıldım", "Herkes benim beceriksiz olduğumu düşünecek", "Utanç, Kaygı (80%)", "Felaketleştirme, Zihin Okuma", "Herkes hata yapabilir. Takılmak normal bir durum."],
+                    ["Arkadaşım mesajıma cevap vermedi", "Bana kızgın olmalı, bir şey yanlış yaptım", "Endişe, Suçluluk (70%)", "Kişiselleştirme, Varsayımda Bulunma", "Meşgul olabilir, mesajı görmemiş olabilir"],
+                    ["İş başvurum reddedildi", "Asla iyi bir iş bulamayacağım", "Umutsuzluk, Hayal Kırıklığı (85%)", "Aşırı Genelleme, Ya Hep Ya Hiç Düşüncesi", "Bu sadece bir başvuruydu, başka fırsatlar olacak"],
+                    ["", "", "", "", ""],
+                    ["", "", "", "", ""]
+                ],
+                "icon": "fas fa-brain"
+            },
+            "duygu-takip": {
+                "name": "Duygu Takip Tablosu",
+                "description": "Gün içinde yaşadığınız duyguları ve tetikleyicilerini izlemek için kullanılır.",
+                "columns": [
+                    "Tarih/Saat",
+                    "Duygu",
+                    "Yoğunluk (0-100)",
+                    "Tetikleyici Olay",
+                    "Bedensel Tepkiler",
+                    "Davranışım"
+                ],
+                "rows": 5,
+                "example": [
+                    ["12 Haziran, 09:30", "Kaygı", "75", "İş toplantısı öncesi", "Kalp çarpıntısı, Terleme", "Sürekli notlarımı kontrol ettim"],
+                    ["12 Haziran, 13:15", "Öfke", "60", "Meslektaşım sözümü kesti", "Yüzüm kızardı, Gerginlik", "Toplantıdan sonra konuşmayı tercih ettim"],
+                    ["12 Haziran, 18:30", "Mutluluk", "80", "Çocuğumla oyun oynamak", "Gevşeme, Enerji artışı", "Daha fazla vakit geçirmeye karar verdim"],
+                    ["", "", "", "", "", ""],
+                    ["", "", "", "", "", ""]
+                ],
+                "icon": "fas fa-heart"
+            },
+            "davranis-aktivasyon": {
+                "name": "Davranış Aktivasyon Tablosu",
+                "description": "Olumlu duygular uyandıran aktiviteleri planlama ve takip etme tablosu.",
+                "columns": [
+                    "Aktivite",
+                    "Haftanın Günü",
+                    "Saat",
+                    "Keyif (0-10)",
+                    "Başarı (0-10)",
+                    "Notlar"
+                ],
+                "rows": 5,
+                "example": [
+                    ["15 dakika yürüyüş", "Pazartesi", "08:00", "6", "7", "Sabah yürüyüşü enerji verdi"],
+                    ["Kitap okuma", "Salı", "21:30", "8", "5", "Yatmadan önce rahatlattı"],
+                    ["Arkadaşla kahve", "Çarşamba", "14:00", "9", "8", "Sosyalleşmek iyi geldi"],
+                    ["", "", "", "", "", ""],
+                    ["", "", "", "", "", ""]
+                ],
+                "icon": "fas fa-running"
+            },
+            "problem-cozme": {
+                "name": "Problem Çözme Tablosu",
+                "description": "Sorunları tanımlama ve çözüm stratejileri geliştirme tablosu.",
+                "columns": [
+                    "Problem Tanımı",
+                    "Olası Çözümler",
+                    "Avantajları",
+                    "Dezavantajları",
+                    "Seçilen Çözüm",
+                    "Aksiyon Planı"
+                ],
+                "rows": 4,
+                "example": [
+                    ["İş-yaşam dengesi kuramıyorum", "Çalışma saatlerimi sınırlandırmak", "Daha fazla kişisel zaman", "Bazı işler yetişmeyebilir", "Sınırlar belirlemek", "18:00'den sonra e-postaları kontrol etmemek"],
+                    ["Sunumlar sırasında aşırı kaygı", "Sunum pratiği yapmak", "Daha hazırlıklı olma", "Zaman alıcı", "Pratik + Nefes teknikleri", "Haftada 2 kez 15dk pratik yapmak"],
+                    ["", "", "", "", "", ""],
+                    ["", "", "", "", "", ""]
+                ],
+                "icon": "fas fa-puzzle-piece"
+            },
+            "iliski-dinamikleri": {
+                "name": "İlişki Dinamikleri Tablosu",
+                "description": "İlişkilerdeki iletişim kalıplarını ve etkileşim örüntülerini analiz etme tablosu.",
+                "columns": [
+                    "İlişki/Kişi",
+                    "İletişim Durumu",
+                    "Benim Tepkim",
+                    "Karşı Tarafın Tepkisi",
+                    "İletişim Kalıbı",
+                    "Alternatif Yaklaşım"
+                ],
+                "rows": 4,
+                "example": [
+                    ["Eşim", "Eve geç gelmesi", "Suçlayıcı sözler söyledim", "Savunmaya geçti ve karşı suçlamalar yaptı", "Eleştiri-Savunma döngüsü", "Duygularımı 'Ben dili' ile ifade etmek"],
+                    ["İş arkadaşı", "Projede gecikme", "Sorunu görmezden geldim", "Pasif-agresif davrandı", "Kaçınma-gerginlik döngüsü", "Sorunu doğrudan ve yapıcı şekilde konuşmak"],
+                    ["", "", "", "", "", ""],
+                    ["", "", "", "", "", ""]
+                ],
+                "icon": "fas fa-users"
+            },
+            "custom": {
+                "name": "Özel Tablo",
+                "description": "İhtiyaçlarınıza göre özelleştirebileceğiniz boş bir tablo.",
+                "columns": [
+                    "Sütun 1",
+                    "Sütun 2",
+                    "Sütun 3"
+                ],
+                "rows": 5,
+                "example": [
+                    ["", "", ""],
+                    ["", "", ""],
+                    ["", "", ""],
+                    ["", "", ""],
+                    ["", "", ""]
+                ],
+                "icon": "fas fa-plus-circle"
+            }
+        };
+    </script>
+
+    <!-- Table Editor JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const tableNameInput = document.getElementById('tableNameInput');
+            const columnCountInput = document.getElementById('columnCountInput');
+            const rowCountInput = document.getElementById('rowCountInput');
+            const addColumnBtn = document.getElementById('addColumnBtn');
+            const removeColumnBtn = document.getElementById('removeColumnBtn');
+            const addRowBtn = document.getElementById('addRowBtn');
+            const removeRowBtn = document.getElementById('removeRowBtn');
+            const updateTableBtn = document.getElementById('updateTableBtn');
+            const clearTableBtn = document.getElementById('clearTableBtn');
+            const saveTableBtn = document.getElementById('saveTableBtn');
+            const exportPdfBtn = document.getElementById('exportPdfBtn');
+            const exportDocxBtn = document.getElementById('exportDocxBtn');
+            const exportJpgBtn = document.getElementById('exportJpgBtn');
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const headerRow = document.getElementById('headerRow');
+            const tableBody = document.getElementById('tableBody');
+            const savedTablesContainer = document.getElementById('savedTablesContainer');
+            const noTablesMessage = document.getElementById('noTablesMessage');
+            const templateContainer = document.getElementById('templateContainer');
+            const tableTitle = document.getElementById('tableTitle');
+            const tableDescription = document.getElementById('tableDescription');
+            const tableToast = document.getElementById('tableToast');
+            const toastTitle = document.getElementById('toastTitle');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            // Variables
+            let currentTableType = 'custom';
+            
+            // Check for dark mode preference
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> Aydınlık Mod';
+            }
+            
+            // Parse URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const tableType = urlParams.get('type');
+              // Initialize table based on URL parameter
+            if (tableType && tableTemplates[tableType]) {
+                currentTableType = tableType;
+                initializeEmptyTableWithStructure(tableType);
+                
+                // Show example table alert
+                showTemplateExampleAlert(tableType);
+            }
+            
+            // Initialize template cards
+            initializeTemplateCards();
+            
+            // Load saved tables
+            loadSavedTables();
+              // Event Listeners
+            // Event Listeners for column and row buttons
+            addColumnBtn.addEventListener('click', function() {
+                const currentValue = parseInt(columnCountInput.value);
+                if (currentValue < 10) {
+                    columnCountInput.value = currentValue + 1;
+                    // Otomatik olarak tabloyu güncelle
+                    updateTable();
+                }
+            });
+            
+            removeColumnBtn.addEventListener('click', function() {
+                const currentValue = parseInt(columnCountInput.value);
+                if (currentValue > 1) {
+                    columnCountInput.value = currentValue - 1;
+                    // Otomatik olarak tabloyu güncelle
+                    updateTable();
+                }
+            });
+            
+            addRowBtn.addEventListener('click', function() {
+                const currentValue = parseInt(rowCountInput.value);
+                if (currentValue < 20) {
+                    rowCountInput.value = currentValue + 1;
+                    // Otomatik olarak tabloyu güncelle
+                    updateTable();
+                }
+            });
+            
+            removeRowBtn.addEventListener('click', function() {
+                const currentValue = parseInt(rowCountInput.value);
+                if (currentValue > 1) {
+                    rowCountInput.value = currentValue - 1;
+                    // Otomatik olarak tabloyu güncelle
+                    updateTable();
+                }
+            });
+            
+            // Input değerlerindeki değişimleri dinle
+            columnCountInput.addEventListener('change', function() {
+                // Input değeri sınırları kontrol et
+                const value = parseInt(this.value);
+                if (value < 1) this.value = 1;
+                if (value > 10) this.value = 10;
+                
+                // Değer geçerliyse tabloyu güncelle
+                if (!isNaN(value) && value >= 1 && value <= 10) {
+                    updateTable();
+                }
+            });
+            
+            rowCountInput.addEventListener('change', function() {
+                // Input değeri sınırları kontrol et
+                const value = parseInt(this.value);
+                if (value < 1) this.value = 1;
+                if (value > 20) this.value = 20;
+                
+                // Değer geçerliyse tabloyu güncelle
+                if (!isNaN(value) && value >= 1 && value <= 20) {
+                    updateTable();
+                }
+            });
+            
+            updateTableBtn.addEventListener('click', updateTable);
+            clearTableBtn.addEventListener('click', clearTable);
+            saveTableBtn.addEventListener('click', saveTable);
+            
+            exportPdfBtn.addEventListener('click', exportToPdf);
+            exportDocxBtn.addEventListener('click', exportToDocx);
+            exportJpgBtn.addEventListener('click', exportToJpg);
+            
+            darkModeToggle.addEventListener('click', toggleDarkMode);
+            
+            // Functions            function initializeTableFromTemplate(templateId) {
+                const template = tableTemplates[templateId];
+                if (!template) return;
+                
+                // Update UI elements
+                tableTitle.textContent = template.name;
+                tableDescription.textContent = template.description;
+                tableNameInput.value = template.name;
+                
+                // Önce input değerlerini güncelle, sonra tabloyu oluştur
+                columnCountInput.value = template.columns.length;
+                rowCountInput.value = template.rows;
+                
+                // Update header row
+                headerRow.innerHTML = '';
+                template.columns.forEach(column => {
+                    const th = document.createElement('th');
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.value = column;
+                    input.placeholder = 'Başlık';
+                    th.appendChild(input);
+                    headerRow.appendChild(th);
+                });
+                
+                // Update table body
+                tableBody.innerHTML = '';
+                for (let i = 0; i < template.rows; i++) {
+                    const tr = document.createElement('tr');
+                    for (let j = 0; j < template.columns.length; j++) {
+                        const td = document.createElement('td');
+                        const input = document.createElement('input');
+                        input.type = 'text';
+                        input.placeholder = 'Hücre içeriği';
+                        
+                        // If example data exists, use it
+                        if (template.example && template.example[i] && template.example[i][j]) {
+                            input.value = template.example[i][j];
+                        }
+                        
+                        td.appendChild(input);
+                        tr.appendChild(td);
+                    }
+                    tableBody.appendChild(tr);
+                }
+            }
+            
+              function initializeEmptyTableWithStructure(templateId) {
+                const template = tableTemplates[templateId];
+                if (!template) return;
+                
+                // Update UI elements
+                tableTitle.textContent = template.name;
+                tableDescription.textContent = template.description;
+                tableNameInput.value = template.name;
+                
+                // Önce input değerlerini güncelle
+                columnCountInput.value = template.columns.length;
+                rowCountInput.value = template.rows;
+                
+                // Update header row
+                headerRow.innerHTML = '';
+                template.columns.forEach(column => {
+                    const th = document.createElement('th');
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.value = column;
+                    input.placeholder = 'Başlık';
+                    th.appendChild(input);
+                    headerRow.appendChild(th);
+                });
+                
+                // Update table body with empty cells
+                tableBody.innerHTML = '';
+                for (let i = 0; i < template.rows; i++) {
+                    const tr = document.createElement('tr');
+                    for (let j = 0; j < template.columns.length; j++) {
+                        const td = document.createElement('td');
+                        const input = document.createElement('input');
+                        input.type = 'text';
+                        input.placeholder = 'Hücre içeriği';
+                        td.appendChild(input);
+                        tr.appendChild(td);
+                    }
+                    tableBody.appendChild(tr);
+                }
+            }
+            
+            function showTemplateExampleAlert(templateId) {
+                const template = tableTemplates[templateId];
+                if (!template || !template.example) return;
+                
+                // Create table HTML for the alert
+                let tableHTML = '<table class="table table-bordered table-striped">';
+                
+                // Add header row
+                tableHTML += '<thead><tr>';
+                template.columns.forEach(column => {
+                    tableHTML += `<th>${column}</th>`;
+                });
+                tableHTML += '</tr></thead>';
+                
+                // Add body rows with example data
+                tableHTML += '<tbody>';
+                for (let i = 0; i < Math.min(3, template.example.length); i++) {
+                    tableHTML += '<tr>';
+                    for (let j = 0; j < template.columns.length; j++) {
+                        if (template.example[i] && template.example[i][j]) {
+                            tableHTML += `<td>${template.example[i][j]}</td>`;
+                        } else {
+                            tableHTML += '<td></td>';
+                        }
+                    }
+                    tableHTML += '</tr>';
+                }
+                tableHTML += '</tbody></table>';
+                
+                // Create custom alert content
+                const alertContent = `
+                    <div class="modal fade" id="exampleTableModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title"><i class="${template.icon} me-2"></i>${template.name} - Örnek</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Bu tablo tipi için bir örnek aşağıda gösterilmiştir. Kendi tablonuzu oluşturmak için bu örneği referans alabilirsiniz.</p>
+                                    <div class="table-responsive">
+                                        ${tableHTML}
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Anladım</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Append modal to body
+                document.body.insertAdjacentHTML('beforeend', alertContent);
+                
+                // Show modal
+                const modal = new bootstrap.Modal(document.getElementById('exampleTableModal'));
+                modal.show();
+                
+                // Remove modal from DOM after it's hidden
+                document.getElementById('exampleTableModal').addEventListener('hidden.bs.modal', function() {
+                    this.remove();
+                });
+            }
+            
+            function initializeTemplateCards() {
+                templateContainer.innerHTML = '';
+                
+                for (const [id, template] of Object.entries(tableTemplates)) {
+                    if (id === 'custom') continue; // Skip the custom template
+                    
+                    const colDiv = document.createElement('div');
+                    colDiv.className = 'col';
+                    
+                    colDiv.innerHTML = `
+                        <div class="card template-card h-100" data-template-id="${id}">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="${template.icon} me-2"></i>${template.name}</h5>
+                                <p class="card-text">${template.description}</p>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-outline-primary btn-sm load-template-btn">
+                                        <i class="fas fa-table me-1"></i> Bu şablonu kullan
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    templateContainer.appendChild(colDiv);
+                }
+                  // Add event listeners to template cards
+                document.querySelectorAll('.load-template-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const templateId = this.closest('.template-card').dataset.templateId;
+                        currentTableType = templateId;
+                        initializeEmptyTableWithStructure(templateId);
+                        showTemplateExampleAlert(templateId);
+                    });
+                });
+            }
+            
+            function updateTable() {
+                const columns = parseInt(columnCountInput.value);
+                const rows = parseInt(rowCountInput.value);
+                
+                // Update header row
+                const currentHeaders = headerRow.querySelectorAll('input');
+                const headerValues = Array.from(currentHeaders).map(input => input.value);
+                
+                headerRow.innerHTML = '';
+                for (let i = 0; i < columns; i++) {
+                    const th = document.createElement('th');
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.placeholder = `Başlık ${i + 1}`;
+                    if (headerValues[i]) {
+                        input.value = headerValues[i];
+                    }
+                    th.appendChild(input);
+                    headerRow.appendChild(th);
+                }
+                
+                // Get current table data
+                const tableData = [];
+                const rows_existing = tableBody.querySelectorAll('tr');
+                rows_existing.forEach(row => {
+                    const rowData = [];
+                    const cells = row.querySelectorAll('input');
+                    cells.forEach(cell => {
+                        rowData.push(cell.value);
+                    });
+                    tableData.push(rowData);
+                });
+                
+                // Update table body
+                tableBody.innerHTML = '';
+                for (let i = 0; i < rows; i++) {
+                    const tr = document.createElement('tr');
+                    for (let j = 0; j < columns; j++) {
+                        const td = document.createElement('td');
+                        const input = document.createElement('input');
+                        input.type = 'text';
+                        input.placeholder = 'Hücre içeriği';
+                        if (tableData[i] && tableData[i][j]) {
+                            input.value = tableData[i][j];
+                        }
+                        td.appendChild(input);
+                        tr.appendChild(td);
+                    }
+                    tableBody.appendChild(tr);
+                }
+            }
+            
+            function clearTable() {
+                if (confirm('Tablo içeriğini temizlemek istediğinize emin misiniz?')) {
+                    tableNameInput.value = '';
+                    // Clear all input values but keep structure
+                    document.querySelectorAll('#editableTable input').forEach(input => {
+                        input.value = '';
+                    });
+                }
+            }
+            
+            function saveTable() {
+                const tableName = tableNameInput.value || 'İsimsiz Tablo';
+                const tableId = 'table_' + Date.now();
+                
+                // Get headers
+                const headers = [];
+                headerRow.querySelectorAll('input').forEach(input => {
+                    headers.push(input.value || input.placeholder);
+                });
+                
+                // Get table data
+                const tableData = [];
+                tableBody.querySelectorAll('tr').forEach(row => {
+                    const rowData = [];
+                    row.querySelectorAll('input').forEach(cell => {
+                        rowData.push(cell.value);
+                    });
+                    tableData.push(rowData);
+                });
+                
+                // Create table object
+                const tableObject = {
+                    id: tableId,
+                    name: tableName,
+                    type: currentTableType,
+                    headers: headers,
+                    data: tableData,
+                    columns: headers.length,
+                    rows: tableData.length,
+                    createdAt: new Date().toISOString()
+                };
+                
+                // Save to localStorage
+                let savedTables = JSON.parse(localStorage.getItem('psykolink_tables') || '[]');
+                savedTables.push(tableObject);
+                localStorage.setItem('psykolink_tables', JSON.stringify(savedTables));
+                
+                // Update UI
+                loadSavedTables();
+                
+                // Show success toast
+                toastTitle.textContent = 'Başarılı';
+                toastMessage.textContent = 'Tablonuz başarıyla kaydedildi!';
+                tableToast.classList.add('bg-success', 'text-white');
+                const toast = new bootstrap.Toast(tableToast);
+                toast.show();
+            }
+            
+            function loadSavedTables() {
+                const savedTables = JSON.parse(localStorage.getItem('psykolink_tables') || '[]');
+                
+                if (savedTables.length === 0) {
+                    noTablesMessage.style.display = 'block';
+                    savedTablesContainer.innerHTML = '';
+                    savedTablesContainer.appendChild(noTablesMessage);
+                    return;
+                }
+                
+                noTablesMessage.style.display = 'none';
+                savedTablesContainer.innerHTML = '';
+                
+                // Sort tables by date (newest first)
+                savedTables.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                
+                savedTables.forEach(table => {
+                    const tableCard = document.createElement('div');
+                    tableCard.className = 'col-md-4 mb-4';
+                    
+                    // Get icon for the table type
+                    const tableType = table.type || 'custom';
+                    const tableIcon = tableTemplates[tableType] ? tableTemplates[tableType].icon : 'fas fa-table';
+                    
+                    tableCard.innerHTML = `
+                        <div class="card h-100 saved-table-card" data-table-id="${table.id}">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="${tableIcon} me-2"></i>${table.name}</h5>
+                                <p class="card-text small text-muted">
+                                    <i class="far fa-calendar-alt me-1"></i>
+                                    ${new Date(table.createdAt).toLocaleDateString('tr-TR')}
+                                    &bull; ${table.columns} sütun &bull; ${table.rows} satır
+                                </p>
+                                <div class="table-preview-mini">
+                                    <div class="table-preview-overflow">
+                                        <table class="table table-sm table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    ${table.headers.map(header => `<th>${header}</th>`).join('')}
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                ${table.data.slice(0, 2).map(row => 
+                                                    `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`
+                                                ).join('')}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent">
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-sm btn-outline-primary load-saved-table-btn">
+                                        <i class="fas fa-edit me-1"></i>Düzenle
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger delete-saved-table-btn">
+                                        <i class="fas fa-trash-alt me-1"></i>Sil
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    savedTablesContainer.appendChild(tableCard);
+                });
+                
+                // Add event listeners to saved table cards
+                document.querySelectorAll('.load-saved-table-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const tableId = this.closest('.saved-table-card').dataset.tableId;
+                        loadTableById(tableId);
+                    });
+                });
+                
+                document.querySelectorAll('.delete-saved-table-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const tableId = this.closest('.saved-table-card').dataset.tableId;
+                        deleteTableById(tableId);
+                    });
+                });
+            }
+            
+            function loadTableById(tableId) {
+                const savedTables = JSON.parse(localStorage.getItem('psykolink_tables') || '[]');
+                const table = savedTables.find(t => t.id === tableId);
+                
+                if (!table) return;
+                
+                // Update UI elements
+                tableNameInput.value = table.name;
+                columnCountInput.value = table.columns;
+                rowCountInput.value = table.rows;
+                currentTableType = table.type || 'custom';
+                
+                // Update header row
+                headerRow.innerHTML = '';
+                table.headers.forEach(header => {
+                    const th = document.createElement('th');
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.value = header;
+                    input.placeholder = 'Başlık';
+                    th.appendChild(input);
+                    headerRow.appendChild(th);
+                });
+                
+                // Update table body                tableBody.innerHTML = '';
+                table.data.forEach(rowData => {
+                    const tr = document.createElement('tr');
+                    rowData.forEach(cellData => {
+                        const td = document.createElement('td');
+                        const input = document.createElement('input');
+                        input.type = 'text';
+                        input.value = cellData;
+                        input.placeholder = 'Hücre içeriği';
+                        td.appendChild(input);
+                        tr.appendChild(td);
+                    });
+                    tableBody.appendChild(tr);
+                });
+                
+                // Scroll to table editor
+                document.querySelector('.table-editor-container').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+            
+            function deleteTableById(tableId) {
+                if (confirm('Bu tabloyu silmek istediğinize emin misiniz?')) {
+                    let savedTables = JSON.parse(localStorage.getItem('psykolink_tables') || '[]');
+                    savedTables = savedTables.filter(t => t.id !== tableId);
+                    localStorage.setItem('psykolink_tables', JSON.stringify(savedTables));
+                    
+                    // Update UI
+                    loadSavedTables();
+                }
+            }
+            
+            function exportToPdf() {
+                const { jsPDF } = window.jspdf;
+                const tableName = tableNameInput.value || 'PsykoLink_Tablo';
+                
+                // Create a clone of the table for export
+                const tableClone = document.querySelector('#editableTable').cloneNode(true);
+                
+                // Replace inputs with text content
+                tableClone.querySelectorAll('input').forEach(input => {
+                    const text = document.createTextNode(input.value);
+                    input.parentNode.replaceChild(text, input);
+                });
+                
+                // Create a container for the table
+                const container = document.createElement('div');
+                container.style.width = '100%';
+                container.style.padding = '10px';
+                
+                // Add table title
+                const title = document.createElement('h2');
+                title.textContent = tableName;
+                title.style.textAlign = 'center';
+                title.style.marginBottom = '10px';
+                container.appendChild(title);
+                
+                // Add PsykoLink footer
+                const footer = document.createElement('p');
+                footer.textContent = 'PsykoLink - Bilişsel Terapi Tabloları';
+                footer.style.textAlign = 'center';
+                footer.style.fontSize = '10px';
+                footer.style.marginTop = '10px';
+                footer.style.color = '#777';
+                
+                // Temporarily add to document
+                container.appendChild(tableClone);
+                container.appendChild(footer);
+                document.body.appendChild(container);
+                
+                // Generate PDF
+                html2canvas(container, {
+                    scale: 2,
+                    useCORS: true,
+                    logging: false
+                }).then(canvas => {
+                    const imgData = canvas.toDataURL('image/png');
+                    const pdf = new jsPDF('p', 'mm', 'a4');
+                    const pdfWidth = pdf.internal.pageSize.getWidth();
+                    const pdfHeight = pdf.internal.pageSize.getHeight();
+                    const imgWidth = canvas.width;
+                    const imgHeight = canvas.height;
+                    const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+                    const imgX = (pdfWidth - imgWidth * ratio) / 2;
+                    
+                    pdf.addImage(imgData, 'PNG', imgX, 10, imgWidth * ratio, imgHeight * ratio);
+                    pdf.save(`${tableName.replace(/\s+/g, '_')}.pdf`);
+                    
+                    // Remove temporary elements
+                    document.body.removeChild(container);
+                });
+            }
+            
+            function exportToDocx() {
+                const tableName = tableNameInput.value || 'PsykoLink_Tablo';
+                const { Document, Packer, Paragraph, Table, TableCell, TableRow, TextRun, AlignmentType, BorderStyle } = docx;
+                
+                // Get headers
+                const headers = [];
+                headerRow.querySelectorAll('input').forEach(input => {
+                    headers.push(input.value || input.placeholder);
+                });
+                
+                // Get table data
+                const tableData = [];
+                tableBody.querySelectorAll('tr').forEach(row => {
+                    const rowData = [];
+                    row.querySelectorAll('input').forEach(cell => {
+                        rowData.push(cell.value);
+                    });
+                    tableData.push(rowData);
+                });
+                
+                // Create DOCX table
+                const rows = [
+                    // Header row
+                    new TableRow({
+                        children: headers.map(header => 
+                            new TableCell({
+                                children: [new Paragraph({
+                                    children: [new TextRun({
+                                        text: header,
+                                        bold: true
+                                    })],
+                                    alignment: AlignmentType.CENTER
+                                })],
+                                shading: {
+                                    fill: "F2F2F2"
+                                }
+                            })
+                        )
+                    }),
+                    // Data rows
+                    ...tableData.map(row => 
+                        new TableRow({
+                            children: row.map(cell => 
+                                new TableCell({
+                                    children: [new Paragraph(cell)]
+                                })
+                            )
+                        })
+                    )
+                ];
+                
+                // Create document
+                const doc = new Document({
+                    sections: [{
+                        properties: {},
+                        children: [
+                            new Paragraph({
+                                children: [
+                                    new TextRun({
+                                        text: tableName,
+                                        bold: true,
+                                        size: 28
+                                    })
+                                ],
+                                alignment: AlignmentType.CENTER,
+                                spacing: {
+                                    after: 400
+                                }
+                            }),
+                            new Table({
+                                rows: rows,
+                                width: {
+                                    size: 100,
+                                    type: "pct"
+                                },
+                                borders: {
+                                    top: { style: BorderStyle.SINGLE, size: 1, color: "auto" },
+                                    bottom: { style: BorderStyle.SINGLE, size: 1, color: "auto" },
+                                    left: { style: BorderStyle.SINGLE, size: 1, color: "auto" },
+                                    right: { style: BorderStyle.SINGLE, size: 1, color: "auto" },
+                                    insideHorizontal: { style: BorderStyle.SINGLE, size: 1, color: "auto" },
+                                    insideVertical: { style: BorderStyle.SINGLE, size: 1, color: "auto" }
+                                }
+                            }),
+                            new Paragraph({
+                                children: [
+                                    new TextRun({
+                                        text: "PsykoLink - Bilişsel Terapi Tabloları",
+                                        size: 18,
+                                        color: "808080"
+                                    })
+                                ],
+                                alignment: AlignmentType.CENTER,
+                                spacing: {
+                                    before: 400
+                                }
+                            })
+                        ]
+                    }]
+                });
+                
+                // Generate and download
+                Packer.toBlob(doc).then(blob => {
+                    saveAs(blob, `${tableName.replace(/\s+/g, '_')}.docx`);
+                });
+            }
+            
+            function exportToJpg() {
+                const tableName = tableNameInput.value || 'PsykoLink_Tablo';
+                
+                // Create a clone of the table for export
+                const tableClone = document.querySelector('#editableTable').cloneNode(true);
+                
+                // Replace inputs with text content
+                tableClone.querySelectorAll('input').forEach(input => {
+                    const text = document.createTextNode(input.value);
+                    input.parentNode.replaceChild(text, input);
+                });
+                
+                // Create a container for the table
+                const container = document.createElement('div');
+                container.style.width = '800px';
+                container.style.backgroundColor = 'white';
+                container.style.padding = '20px';
+                
+                // Add table title
+                const title = document.createElement('h2');
+                title.textContent = tableName;
+                title.style.textAlign = 'center';
+                title.style.marginBottom = '20px';
+                container.appendChild(title);
+                
+                // Style the table
+                tableClone.classList.add('table-bordered');
+                tableClone.style.width = '100%';
+                tableClone.style.borderCollapse = 'collapse';
+                
+                Array.from(tableClone.querySelectorAll('th, td')).forEach(cell => {
+                    cell.style.border = '1px solid #dee2e6';
+                    cell.style.padding = '10px';
+                });
+                
+                Array.from(tableClone.querySelectorAll('th')).forEach(th => {
+                    th.style.backgroundColor = '#f8f9fa';
+                    th.style.fontWeight = 'bold';
+                });
+                
+                // Add PsykoLink footer
+                const footer = document.createElement('p');
+                footer.textContent = 'PsykoLink - Bilişsel Terapi Tabloları';
+                footer.style.textAlign = 'center';
+                footer.style.fontSize = '12px';
+                footer.style.marginTop = '20px';
+                footer.style.color = '#777';
+                
+                // Temporarily add to document
+                container.appendChild(tableClone);
+                container.appendChild(footer);
+                document.body.appendChild(container);
+                
+                // Generate JPG
+                html2canvas(container, {
+                    scale: 2,
+                    backgroundColor: 'white',
+                    logging: false
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = `${tableName.replace(/\s+/g, '_')}.jpg`;
+                    link.href = canvas.toDataURL('image/jpeg', 1.0);
+                    link.click();
+                    
+                    // Remove temporary elements
+                    document.body.removeChild(container);
+                });
+            }
+            
+            function toggleDarkMode() {
+                document.body.classList.toggle('dark-mode');
+                if (document.body.classList.contains('dark-mode')) {
+                    localStorage.setItem('darkMode', 'enabled');
+                    darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> Aydınlık Mod';
+                } else {
+                    localStorage.setItem('darkMode', 'disabled');
+                    darkModeToggle.innerHTML = '<i class="fas fa-moon"></i> Karanlık Mod';
+                }
+            }
+        });    </script>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script src="tablo.js"></script>
+    <script src="assets/js/exercises-tracker.js"></script>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="tableToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="fas fa-bell me-2"></i>
+                <strong class="me-auto" id="toastTitle">Bildirim</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="toastMessage">
+                İşlem başarıyla tamamlandı.
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

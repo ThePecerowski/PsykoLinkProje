@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Tracking Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-links {
+            margin: 20px 0;
+        }
+        .test-links a {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background: #f0f0f0;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .test-links a:hover {
+            background: #e0e0e0;
+        }
+        #results {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>URL Tracking Test</h1>
+    
+    <div class="test-links">
+        <h3>Test Links with URL Parameters:</h3>
+        <a href="tablo.html?type=duygu-takip">Tablo - Duygu Takip</a>
+        <a href="tablo.html?type=dusunce-kayit">Tablo - Düşünce Kayıt</a>
+        <a href="meditasyonlar.html?id=nefes-farkindaligi">Meditasyonlar - Nefes Farkındalığı</a>
+        <a href="meditasyonlar.html?id=vucut-taramasi">Meditasyonlar - Vücut Taraması</a>
+        <a href="nefes-egzersizi.html?id=4-7-8">Nefes Egzersizi - 4-7-8</a>
+        <a href="nefes-egzersizi.html?id=box-breathing">Nefes Egzersizi - Box Breathing</a>
+        <a href="gunluk.html">Günlük (Sonuçları Görmek İçin)</a>
+    </div>
+    
+    <div id="results">
+        <h3>LocalStorage İçeriği:</h3>
+        <button onclick="showStorageContents()">Storage İçeriğini Göster</button>
+        <button onclick="clearStorage()">Storage'ı Temizle</button>
+        <pre id="storage-content"></pre>
+    </div>
+
+    <script>
+        function showStorageContents() {
+            const urlActivities = localStorage.getItem('user_url_activities');
+            const content = document.getElementById('storage-content');
+            
+            if (urlActivities) {
+                try {
+                    const parsed = JSON.parse(urlActivities);
+                    content.textContent = JSON.stringify(parsed, null, 2);
+                } catch (e) {
+                    content.textContent = 'Error parsing JSON: ' + e.message + '\n\nRaw content:\n' + urlActivities;
+                }
+            } else {
+                content.textContent = 'No URL activities found in localStorage';
+            }
+        }
+        
+        function clearStorage() {
+            localStorage.removeItem('user_url_activities');
+            document.getElementById('storage-content').textContent = 'Storage cleared';
+        }
+        
+        // Sayfa yüklendiğinde storage içeriğini göster
+        window.addEventListener('load', showStorageContents);
+    </script>
+    
+    <!-- URL tracking script'ini dahil et -->
+    <script src="assets/js/exercises-tracker.js"></script>
+</body>
+</html>
